@@ -1,0 +1,148 @@
+{
+  "version": "bio2rtl-v1-tr1um-cell-spice-pins-r5-normalized",
+  "source": "actual TR-1um R5 normalized extracted-SPICE audit",
+  "cells": {
+    "AND2_X1": [
+      "A",
+      "B",
+      "vdd",
+      "Y",
+      "gnd"
+    ],
+    "AND3_X1": [
+      "A",
+      "B",
+      "Y",
+      "C",
+      "vdd",
+      "gnd"
+    ],
+    "AND4_X1": [
+      "A",
+      "C",
+      "Y",
+      "B",
+      "D",
+      "vdd",
+      "gnd"
+    ],
+    "CLKBUF_X4": [
+      "A",
+      "Y",
+      "vdd",
+      "gnd"
+    ],
+    "DEL4": [
+      "Y",
+      "A",
+      "vdd",
+      "gnd"
+    ],
+    "DFFR": [
+      "CK",
+      "D",
+      "RST",
+      "QB",
+      "Q",
+      "vdd",
+      "gnd"
+    ],
+    "INV_X1": [
+      "vdd",
+      "A",
+      "Y",
+      "gnd"
+    ],
+    "INV_X4": [
+      "A",
+      "Y",
+      "vdd",
+      "gnd"
+    ],
+    "MUX2": [
+      "S",
+      "Y",
+      "B",
+      "A",
+      "vdd",
+      "gnd"
+    ],
+    "NAND2": [
+      "vdd",
+      "A",
+      "B",
+      "Y",
+      "gnd"
+    ],
+    "NAND3": [
+      "A",
+      "B",
+      "C",
+      "Y",
+      "vdd",
+      "gnd"
+    ],
+    "NAND4": [
+      "A",
+      "B",
+      "Y",
+      "C",
+      "D",
+      "vdd",
+      "gnd"
+    ],
+    "NOR2": [
+      "A",
+      "B",
+      "vdd",
+      "Y",
+      "gnd"
+    ],
+    "NOR3": [
+      "vdd",
+      "B",
+      "A",
+      "C",
+      "Y",
+      "gnd"
+    ],
+    "OR2": [
+      "vdd",
+      "A",
+      "B",
+      "Y",
+      "gnd"
+    ],
+    "OR3": [
+      "A",
+      "Y",
+      "C",
+      "B",
+      "vdd",
+      "gnd"
+    ],
+    "OR4": [
+      "D",
+      "C",
+      "Y",
+      "B",
+      "A",
+      "vdd",
+      "gnd"
+    ],
+    "XNOR2": [
+      "B",
+      "Y",
+      "A",
+      "vdd",
+      "gnd"
+    ],
+    "XOR2": [
+      "B",
+      "Y",
+      "A",
+      "vdd",
+      "gnd"
+    ]
+  }
+}

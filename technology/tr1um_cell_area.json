@@ -1,0 +1,26 @@
+{
+  "cell_area_um2": {
+    "AND2_X1": 2165.96,
+    "AND3_X1": 2510.26,
+    "AND4_X1": 2854.56,
+    "CLKBUF_X4": 8019.0599999999995,
+    "DEL4": 7330.460000000001,
+    "DFFR": 6297.56,
+    "INV_X1": 1821.66,
+    "INV_X4": 2510.26,
+    "MUX2": 3887.46,
+    "NAND2": 1821.66,
+    "NAND3": 2165.96,
+    "NAND4": 2510.26,
+    "NOR2": 1821.66,
+    "NOR3": 2165.96,
+    "OR2": 2165.96,
+    "OR3": 2510.26,
+    "OR4": 2854.56,
+    "XNOR2": 2854.56,
+    "XOR2": 2854.56
+  },
+  "source": "actual trusted GDS bbox measurement",
+  "status": "PASS",
+  "version": "tr1um-cell-area-v1"
+}

@@ -1,0 +1,203 @@
+{
+  "version": "bio2rtl-i2c-electrical-benchmark-v1",
+  "status": "GENERATED_NOT_TRANSIENT_VALIDATED_IN_THIS_RUNTIME",
+  "clock_hz": 100000,
+  "dut_symbol": "i2c_gpio_2bit_fullchip.sym",
+  "schematic": "i2c_gpio_2bit_i2c_benchmark.sch",
+  "parts": {
+    "dut": "i2c_gpio_2bit_fullchip.sym",
+    "supply": "3.3 V source",
+    "sda_pullup": "4.7 kohm VDD-to-SDA",
+    "master_open_drain": "TR-1um NMOS drain=SDA source/body=VSS gate=SDA_MASTER_LOW",
+    "gpio0_fixture": "1 kohm VDD-to-GPIO0",
+    "gpio1_fixture": "1 kohm GPIO1-to-VSS"
+  },
+  "transactions": [
+    "START 0x84 ACK 0x00 ACK 0x00 ACK STOP",
+    "START 0x84 ACK 0x01 ACK 0x01 ACK STOP",
+    "START 0x84 ACK 0x00 ACK 0x03 ACK STOP",
+    "START 0x84 ACK 0x02 ACK repeated-START 0x85 ACK read 0x01 master-ACK read 0xFF master-NACK STOP",
+    "START 0x86 NACK STOP"
+  ],
+  "expected": {
+    "write_acks": true,
+    "after_data_0x01_gpio0": "HIGH",
+    "after_data_0x01_gpio1": "LOW",
+    "first_read": "0x01",
+    "second_read": "0xFF",
+    "address_0x86": "NACK"
+  },
+  "observe": [
+    "V(SCL)",
+    "V(SDA)",
+    "V(GPIO0)",
+    "V(GPIO1)"
+  ],
+  "stimulus_annotations": [
+    {
+      "time_us": 12.5,
+      "event": "START"
+    },
+    {
+      "time_us": 20.0,
+      "event": "WRITE_DIR_OUTPUT_ADDR_W_0x84"
+    },
+    {
+      "time_us": 102.5,
+      "event": "SLAVE_ACK_SLOT_DIR_OUTPUT_ADDR"
+    },
+    {
+      "time_us": 110.0,
+      "event": "WRITE_DIR_OUTPUT_REG_0x00"
+    },
+    {
+      "time_us": 192.5,
+      "event": "SLAVE_ACK_SLOT_DIR_OUTPUT_REG"
+    },
+    {
+      "time_us": 200.0,
+      "event": "WRITE_DIR_OUTPUT_DATA_0x00"
+    },
+    {
+      "time_us": 282.5,
+      "event": "SLAVE_ACK_SLOT_DIR_OUTPUT_DATA"
+    },
+    {
+      "time_us": 300.0,
+      "event": "STOP"
+    },
+    {
+      "time_us": 322.5,
+      "event": "START"
+    },
+    {
+      "time_us": 330.0,
+      "event": "WRITE_DATA_01_ADDR_W_0x84"
+    },
+    {
+      "time_us": 412.5,
+      "event": "SLAVE_ACK_SLOT_DATA_01_ADDR"
+    },
+    {
+      "time_us": 420.0,
+      "event": "WRITE_DATA_01_REG_0x01"
+    },
+    {
+      "time_us": 502.5,
+      "event": "SLAVE_ACK_SLOT_DATA_01_REG"
+    },
+    {
+      "time_us": 510.0,
+      "event": "WRITE_DATA_01_DATA_0x01"
+    },
+    {
+      "time_us": 592.5,
+      "event": "SLAVE_ACK_SLOT_DATA_01_DATA"
+    },
+    {
+      "time_us": 610.0,
+      "event": "STOP"
+    },
+    {
+      "time_us": 632.5,
+      "event": "START"
+    },
+    {
+      "time_us": 640.0,
+      "event": "WRITE_DIR_INPUT_ADDR_W_0x84"
+    },
+    {
+      "time_us": 722.5,
+      "event": "SLAVE_ACK_SLOT_DIR_INPUT_ADDR"
+    },
+    {
+      "time_us": 730.0,
+      "event": "WRITE_DIR_INPUT_REG_0x00"
+    },
+    {
+      "time_us": 812.5,
+      "event": "SLAVE_ACK_SLOT_DIR_INPUT_REG"
+    },
+    {
+      "time_us": 820.0,
+      "event": "WRITE_DIR_INPUT_DATA_0x03"
+    },
+    {
+      "time_us": 902.5,
+      "event": "SLAVE_ACK_SLOT_DIR_INPUT_DATA"
+    },
+    {
+      "time_us": 920.0,
+      "event": "STOP"
+    },
+    {
+      "time_us": 942.5,
+      "event": "START"
+    },
+    {
+      "time_us": 950.0,
+      "event": "WRITE_READSET_ADDR_W_0x84"
+    },
+    {
+      "time_us": 1032.5,
+      "event": "SLAVE_ACK_SLOT_READSET_ADDR"
+    },
+    {
+      "time_us": 1040.0,
+      "event": "WRITE_READSET_REG2_0x02"
+    },
+    {
+      "time_us": 1122.5,
+      "event": "SLAVE_ACK_SLOT_READSET_REG2"
+    },
+    {
+      "time_us": 1135.0,
+      "event": "REPEATED_START"
+    },
+    {
+      "time_us": 1142.5,
+      "event": "WRITE_READ_ADDR_R_0x85"
+    },
+    {
+      "time_us": 1225.0,
+      "event": "SLAVE_ACK_SLOT_READ_ADDR_R"
+    },
+    {
+      "time_us": 1232.5,
+      "event": "READ_BYTE1_EXPECT_0x01"
+    },
+    {
+      "time_us": 1312.5,
+      "event": "MASTER_ACK"
+    },
+    {
+      "time_us": 1322.5,
+      "event": "READ_BYTE2_EXPECT_0xFF"
+    },
+    {
+      "time_us": 1402.5,
+      "event": "MASTER_NACK"
+    },
+    {
+      "time_us": 1422.5,
+      "event": "STOP"
+    },
+    {
+      "time_us": 1445.0,
+      "event": "START"
+    },
+    {
+      "time_us": 1452.5,
+      "event": "WRITE_MISMATCH_ADDR_0x86"
+    },
+    {
+      "time_us": 1535.0,
+      "event": "SLAVE_ACK_SLOT_MISMATCH_EXPECT_NACK"
+    },
+    {
+      "time_us": 1552.5,
+      "event": "STOP"
+    }
+  ],
+  "stop_time_us": 1602.5
+}

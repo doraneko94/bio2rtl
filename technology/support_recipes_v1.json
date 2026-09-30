@@ -1,0 +1,46 @@
+{
+  "version": "bio2rtl-tr1um-support-recipe-library-v1",
+  "technology": "TR-1um",
+  "recipes": {
+    "tr1um_por_v1": {
+      "kind": "por",
+      "sch": "tr1um_hand_support_v1/por.sch",
+      "sym": "tr1um_hand_support_v1/por.sym",
+      "sha256": {
+        "sch": "b2bf0b3b4873c86dfbe6d5be3b23d9957f3c2acfabe934ed9cb69591ac4feea3",
+        "sym": "87e87482ff6a66cb41f7fc09295880fce29d0eb250c2a4eb69bf8aeaa69d2423"
+      },
+      "ports": {"VDD": "power_vdd", "VSS": "power_vss", "R": "core_output"}
+    },
+    "tr1um_open_drain_v1": {
+      "kind": "open_drain",
+      "sch": "tr1um_hand_support_v1/sda_io.sch",
+      "sym": "tr1um_hand_support_v1/sda_io.sym",
+      "sha256": {
+        "sch": "f486de1a765aacbd680ca2532380cf945ddf1eed922268a697fc693e8780369f",
+        "sym": "2602dc6d211aef3fbba88204f5d2a53f7088787d88eed10f79d417c0d1f3b921"
+      },
+      "ports": {"VDD": "power_vdd", "VSS": "power_vss", "PAD": "pad", "IN": "core_output", "LOW": "core_input"}
+    },
+    "tr1um_gpio_v1": {
+      "kind": "bidirectional_gpio",
+      "sch": "tr1um_hand_support_v1/gpio_io.sch",
+      "sym": "tr1um_hand_support_v1/gpio_io.sym",
+      "sha256": {
+        "sch": "d38337bf9aaca25414beb2be1ade55a859e5ab2cfd768cd49fe45fcbb345271b",
+        "sym": "1a6361c33f9c55124f469bea27f3e2292bb48d2f03155a2b124b6608139c35a6"
+      },
+      "ports": {"VDD": "power_vdd", "VSS": "power_vss", "PAD": "pad", "INPUT_VALUE": "core_output", "OUT": "core_input", "OUT_B": "core_input", "DIR": "core_input", "DIR_B": "core_input"}
+    },
+    "tr1um_gpio_o_v1": {
+      "kind": "gpio_output",
+      "sch": "tr1um_hand_support_v1/gpio_o.sch",
+      "sym": "tr1um_hand_support_v1/gpio_o.sym",
+      "sha256": {
+        "sch": "00fad965721bba824c3fae88073e99036152b4942b75bdbeefd01c04193324d3",
+        "sym": "af3edce7a2636a2e20e8cd4492cfda3292ba0b496d829165b859f513d57e04ca"
+      },
+      "ports": {"VDD": "power_vdd", "VSS": "power_vss", "PAD": "pad", "OUT": "core_input", "OUT_B": "core_input", "DIR": "core_input", "DIR_B": "core_input"}
+    }
+  }
+}

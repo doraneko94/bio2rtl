@@ -1,0 +1,60 @@
+{
+  "entries": [
+    {
+      "component_selector": "835c51bf33d0792da416e590966b292f279552a687b08449517c1ec983e61b76",
+      "plan": {
+        "advance_expression": [
+          "AND",
+          [
+            [
+              "VAR",
+              "rx_terminal"
+            ],
+            [
+              "OR",
+              [
+                [
+                  "VAR",
+                  "p08_ne0"
+                ],
+                [
+                  "AND",
+                  [
+                    [
+                      "VAR",
+                      "rx_match"
+                    ],
+                    [
+                      "VAR",
+                      "sda_n"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "advance_inputs": [
+          "rx_terminal",
+          "p08_ne0",
+          "rx_match",
+          "sda_n"
+        ],
+        "clock": "scl",
+        "origin": "content-addressed neutral interface binding; modulo recurrence is fresh proof-derived",
+        "state_bits": [
+          {
+            "complement": "p08_0_n",
+            "net": "p08_0"
+          },
+          {
+            "complement": "p08_1_n",
+            "net": "p08_1"
+          }
+        ],
+        "version": "bio2rtl-direct-state-interface-binding-v1"
+      }
+    }
+  ],
+  "version": "bio2rtl-neutral-direct-state-interface-binding-cache-v1"
+}

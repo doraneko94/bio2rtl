@@ -1,0 +1,22 @@
+set_after_3_rises.o: file format elf32-littleriscv
+
+Disassembly of section .text:
+
+00000000 <start>:
+   0: 00000013  li x6,0x10000
+   4: 00000013  li x7,0x40000
+   8: 00000013  li x8,0
+   c: 00000013  li x9,0
+  10: 00000013  mv dirout,x7
+00000014 <loop>:
+  14: 00000013  mv x5,gpio
+  18: 00000013  and x5,x5,x6
+  1c: 00000013  beq x5,x8,14 <loop>
+  20: 00000013  mv x8,x5
+  24: 00000013  beqz x5,14 <loop>
+  28: 00000013  addi x9,x9,1
+  2c: 00000013  li x10,3
+  30: 00000013  bne x9,x10,14 <loop>
+  34: 00000013  mv gpset,x7
+00000038 <done>:
+  38: 0000006f  j 38 <done>

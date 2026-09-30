@@ -1,0 +1,1839 @@
+{
+  "contracts": {
+    "direct_protocol_state": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "bootstrap_validation": {
+        "method": "symbolic-extract -> generic-remap -> symbolic-reextract exact expression equality",
+        "original_area_um2": 26968.08,
+        "original_cells": 8,
+        "remapped_area_um2": 26968.08,
+        "remapped_cells": 8,
+        "status": "PASS"
+      },
+      "combinational_outputs": {},
+      "component_class": "direct_protocol_state",
+      "dffs": [
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "XOR",
+            [
+              "AND",
+              [
+                [
+                  "OR",
+                  [
+                    [
+                      "AND",
+                      [
+                        [
+                          "VAR",
+                          "rx_match"
+                        ],
+                        [
+                          "VAR",
+                          "sda_n"
+                        ]
+                      ]
+                    ],
+                    [
+                      "VAR",
+                      "p08_ne0"
+                    ]
+                  ]
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "p08_0"
+            ]
+          ],
+          "q": "p08_0",
+          "qb": "p08_0_n",
+          "reset": "start_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "XOR",
+            [
+              "AND",
+              [
+                [
+                  "OR",
+                  [
+                    [
+                      "AND",
+                      [
+                        [
+                          "VAR",
+                          "rx_match"
+                        ],
+                        [
+                          "VAR",
+                          "sda_n"
+                        ]
+                      ]
+                    ],
+                    [
+                      "VAR",
+                      "p08_ne0"
+                    ]
+                  ]
+                ],
+                [
+                  "VAR",
+                  "p08_0"
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "p08_1"
+            ]
+          ],
+          "q": "p08_1",
+          "qb": "p08_1_n",
+          "reset": "start_reset"
+        }
+      ],
+      "interface_inputs": [
+        "p08_ne0",
+        "rx_match",
+        "rx_terminal",
+        "scl",
+        "sda_n",
+        "start_reset"
+      ],
+      "interface_outputs": [
+        "p08_0",
+        "p08_0_n",
+        "p08_1",
+        "p08_1_n"
+      ],
+      "selector_sha256": "835c51bf33d0792da416e590966b292f279552a687b08449517c1ec983e61b76",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    },
+    "observation_tx_selector": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "bootstrap_validation": {
+        "method": "symbolic-extract -> generic-remap -> symbolic-reextract exact expression equality",
+        "original_area_um2": 31199.84,
+        "original_cells": 9,
+        "remapped_area_um2": 31199.84,
+        "remapped_cells": 9,
+        "status": "PASS"
+      },
+      "combinational_outputs": {
+        "tx_b005": [
+          "MUX",
+          [
+            "VAR",
+            "pc2"
+          ],
+          [
+            "NOT",
+            [
+              "AND",
+              [
+                [
+                  "MUX",
+                  [
+                    "VAR",
+                    "p12_1"
+                  ],
+                  [
+                    "MUX",
+                    [
+                      "VAR",
+                      "p12_0"
+                    ],
+                    [
+                      "MUX",
+                      [
+                        "VAR",
+                        "pc0"
+                      ],
+                      [
+                        "VAR",
+                        "gdirp0"
+                      ],
+                      [
+                        "VAR",
+                        "gdirp1"
+                      ]
+                    ],
+                    [
+                      "MUX",
+                      [
+                        "VAR",
+                        "pc0"
+                      ],
+                      [
+                        "VAR",
+                        "gdata0"
+                      ],
+                      [
+                        "VAR",
+                        "gdata1"
+                      ]
+                    ]
+                  ],
+                  [
+                    "MUX",
+                    [
+                      "VAR",
+                      "p12_0"
+                    ],
+                    [
+                      "MUX",
+                      [
+                        "VAR",
+                        "pc0"
+                      ],
+                      [
+                        "VAR",
+                        "snap0"
+                      ],
+                      [
+                        "VAR",
+                        "snap1"
+                      ]
+                    ],
+                    [
+                      "CONST",
+                      0
+                    ]
+                  ]
+                ],
+                [
+                  "VAR",
+                  "pc1_n"
+                ]
+              ]
+            ]
+          ],
+          [
+            "NOT",
+            [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "p12_0"
+                ],
+                [
+                  "VAR",
+                  "p12_1"
+                ],
+                [
+                  "VAR",
+                  "pc0"
+                ]
+              ]
+            ]
+          ]
+        ]
+      },
+      "component_class": "observation_tx_selector",
+      "dffs": [],
+      "interface_inputs": [
+        "gdata0",
+        "gdata1",
+        "gdirp0",
+        "gdirp1",
+        "p12_0",
+        "p12_1",
+        "pc0",
+        "pc1_n",
+        "pc2",
+        "snap0",
+        "snap1"
+      ],
+      "interface_outputs": [
+        "tx_b005"
+      ],
+      "selector_sha256": "a26af837277acbca129bc0312f0e10161302cd56146b290a145c51dc6db1a846",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    },
+    "open_drain_oe_recurrence": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "bootstrap_validation": {
+        "method": "symbolic-extract -> generic-remap -> symbolic-reextract exact expression equality",
+        "original_area_um2": 16682.9,
+        "original_cells": 5,
+        "remapped_area_um2": 16682.9,
+        "remapped_cells": 5,
+        "status": "PASS"
+      },
+      "combinational_outputs": {},
+      "component_class": "open_drain_oe_recurrence",
+      "dffs": [
+        {
+          "cell": "DFFR",
+          "clock": "scl_n",
+          "d_expr": [
+            "OR",
+            [
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "ctrl_f0"
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r0"
+                  ]
+                ]
+              ],
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "ctrl_f0_n"
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_f1_n"
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r0_n"
+                  ],
+                  [
+                    "VAR",
+                    "sda_oe"
+                  ]
+                ]
+              ],
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "ctrl_r0"
+                  ],
+                  [
+                    "VAR",
+                    "pc7_n"
+                  ],
+                  [
+                    "VAR",
+                    "tx_b005"
+                  ]
+                ]
+              ],
+              [
+                "VAR",
+                "ctrl_r1"
+              ]
+            ]
+          ],
+          "q": "sda_oe",
+          "qb": "sda_oe_n",
+          "reset": "proto_reset"
+        }
+      ],
+      "interface_inputs": [
+        "ctrl_f0",
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0",
+        "ctrl_r0_n",
+        "ctrl_r1",
+        "pc7_n",
+        "proto_reset",
+        "scl_n",
+        "tx_b005"
+      ],
+      "interface_outputs": [
+        "sda_oe"
+      ],
+      "selector_sha256": "bb0e14ced597515129e3c7828014e8c3c766b3796eaec814ca75428f9ef12048",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    },
+    "phase_factorized_control": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "bootstrap_validation": {
+        "method": "symbolic-extract -> generic-remap -> symbolic-reextract exact expression equality",
+        "original_area_um2": 42517.92,
+        "original_cells": 12,
+        "remapped_area_um2": 42517.92,
+        "remapped_cells": 12,
+        "status": "PASS"
+      },
+      "combinational_outputs": {
+        "ctrl_r0_read": [
+          "AND",
+          [
+            [
+              "VAR",
+              "ack_enter"
+            ],
+            [
+              "VAR",
+              "read_ack"
+            ]
+          ]
+        ]
+      },
+      "component_class": "phase_factorized_control",
+      "dffs": [
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "OR",
+            [
+              [
+                "AND",
+                [
+                  [
+                    "OR",
+                    [
+                      [
+                        "VAR",
+                        "ctrl_f0_n"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_r1"
+                      ]
+                    ]
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r0"
+                  ]
+                ]
+              ],
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "ack_enter"
+                  ],
+                  [
+                    "VAR",
+                    "read_ack"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "q": "ctrl_r0",
+          "qb": "ctrl_r0_n",
+          "reset": "proto_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "VAR",
+            "ack_enter"
+          ],
+          "q": "ctrl_r1",
+          "qb": "ctrl_r1_n",
+          "reset": "proto_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl_n",
+          "d_expr": [
+            "AND",
+            [
+              [
+                "OR",
+                [
+                  [
+                    "AND",
+                    [
+                      [
+                        "VAR",
+                        "ctrl_f0_n"
+                      ],
+                      [
+                        "VAR",
+                        "pc7"
+                      ]
+                    ]
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r1"
+                  ]
+                ]
+              ],
+              [
+                "VAR",
+                "ctrl_r0"
+              ]
+            ]
+          ],
+          "q": "ctrl_f0",
+          "qb": "ctrl_f0_n",
+          "reset": "proto_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl_n",
+          "d_expr": [
+            "AND",
+            [
+              [
+                "VAR",
+                "ctrl_r0_n"
+              ],
+              [
+                "VAR",
+                "ctrl_r1"
+              ]
+            ]
+          ],
+          "q": "ctrl_f1",
+          "qb": "ctrl_f1_n",
+          "reset": "proto_reset"
+        }
+      ],
+      "interface_inputs": [
+        "ack_enter",
+        "pc7",
+        "proto_reset",
+        "read_ack",
+        "scl",
+        "scl_n"
+      ],
+      "interface_outputs": [
+        "ctrl_f0",
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0",
+        "ctrl_r0_n",
+        "ctrl_r0_read",
+        "ctrl_r1",
+        "ctrl_r1_n"
+      ],
+      "selector_sha256": "d27852f49f9ceb6296db001f28224fc0588852e2ef3275707ba11476347f9851",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    },
+    "recovered_predicate_network": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "bootstrap_validation": {
+        "method": "symbolic-extract -> generic-remap -> symbolic-reextract exact expression equality",
+        "original_area_um2": 43663.5,
+        "original_cells": 20,
+        "remapped_area_um2": 64233.86,
+        "remapped_cells": 26,
+        "status": "PASS"
+      },
+      "combinational_outputs": {
+        "ack_enter": [
+          "AND",
+          [
+            [
+              "NOT",
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "p08_0"
+                  ],
+                  [
+                    "VAR",
+                    "p08_1"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "OR",
+              [
+                [
+                  "NOT",
+                  [
+                    "OR",
+                    [
+                      [
+                        "VAR",
+                        "rxq0"
+                      ],
+                      [
+                        "VAR",
+                        "rxq1"
+                      ],
+                      [
+                        "VAR",
+                        "rxq2"
+                      ]
+                    ]
+                  ]
+                ],
+                [
+                  "VAR",
+                  "p08_0"
+                ],
+                [
+                  "VAR",
+                  "p08_1"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "ctrl_f0_n"
+            ],
+            [
+              "VAR",
+              "ctrl_f1_n"
+            ],
+            [
+              "VAR",
+              "ctrl_r0_n"
+            ],
+            [
+              "VAR",
+              "ctrl_r1_n"
+            ],
+            [
+              "VAR",
+              "pc0"
+            ],
+            [
+              "VAR",
+              "pc1"
+            ],
+            [
+              "VAR",
+              "pc2"
+            ],
+            [
+              "VAR",
+              "s00"
+            ]
+          ]
+        ],
+        "mismatch_reset": [
+          "NOT",
+          [
+            "OR",
+            [
+              [
+                "NOT",
+                [
+                  "AND",
+                  [
+                    [
+                      "NOT",
+                      [
+                        "AND",
+                        [
+                          [
+                            "VAR",
+                            "p08_0"
+                          ],
+                          [
+                            "VAR",
+                            "p08_1"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "OR",
+                      [
+                        [
+                          "VAR",
+                          "rxq0"
+                        ],
+                        [
+                          "VAR",
+                          "rxq1"
+                        ],
+                        [
+                          "VAR",
+                          "rxq2"
+                        ]
+                      ]
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_f0_n"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_f1_n"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_r0_n"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_r1_n"
+                    ],
+                    [
+                      "VAR",
+                      "p08_0_n"
+                    ],
+                    [
+                      "VAR",
+                      "p08_1_n"
+                    ],
+                    [
+                      "VAR",
+                      "pc0"
+                    ],
+                    [
+                      "VAR",
+                      "pc1"
+                    ],
+                    [
+                      "VAR",
+                      "pc2"
+                    ],
+                    [
+                      "VAR",
+                      "s00"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "VAR",
+                "scl"
+              ]
+            ]
+          ]
+        ],
+        "p08_eq1": [
+          "AND",
+          [
+            [
+              "VAR",
+              "p08_0"
+            ],
+            [
+              "VAR",
+              "p08_1_n"
+            ]
+          ]
+        ],
+        "p08_eq2": [
+          "AND",
+          [
+            [
+              "VAR",
+              "p08_0_n"
+            ],
+            [
+              "VAR",
+              "p08_1"
+            ]
+          ]
+        ],
+        "p08_ne0": [
+          "OR",
+          [
+            [
+              "VAR",
+              "p08_0"
+            ],
+            [
+              "VAR",
+              "p08_1"
+            ]
+          ]
+        ],
+        "p12_eq0": [
+          "AND",
+          [
+            [
+              "VAR",
+              "p12_0_n"
+            ],
+            [
+              "VAR",
+              "p12_1_n"
+            ]
+          ]
+        ],
+        "p12_eq1": [
+          "AND",
+          [
+            [
+              "VAR",
+              "p12_0"
+            ],
+            [
+              "VAR",
+              "p12_1_n"
+            ]
+          ]
+        ],
+        "pc7": [
+          "AND",
+          [
+            [
+              "VAR",
+              "pc0"
+            ],
+            [
+              "VAR",
+              "pc1"
+            ],
+            [
+              "VAR",
+              "pc2"
+            ]
+          ]
+        ],
+        "pc7_n": [
+          "NOT",
+          [
+            "AND",
+            [
+              [
+                "VAR",
+                "pc0"
+              ],
+              [
+                "VAR",
+                "pc1"
+              ],
+              [
+                "VAR",
+                "pc2"
+              ]
+            ]
+          ]
+        ],
+        "pc_rx_inc": [
+          "AND",
+          [
+            [
+              "NOT",
+              [
+                "AND",
+                [
+                  [
+                    "NOT",
+                    [
+                      "AND",
+                      [
+                        [
+                          "VAR",
+                          "p08_0"
+                        ],
+                        [
+                          "VAR",
+                          "p08_1"
+                        ]
+                      ]
+                    ]
+                  ],
+                  [
+                    "OR",
+                    [
+                      [
+                        "VAR",
+                        "rxq0"
+                      ],
+                      [
+                        "VAR",
+                        "rxq1"
+                      ],
+                      [
+                        "VAR",
+                        "rxq2"
+                      ]
+                    ]
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_f0_n"
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_f1_n"
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r0_n"
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r1_n"
+                  ],
+                  [
+                    "VAR",
+                    "p08_0_n"
+                  ],
+                  [
+                    "VAR",
+                    "p08_1_n"
+                  ],
+                  [
+                    "VAR",
+                    "pc0"
+                  ],
+                  [
+                    "VAR",
+                    "pc1"
+                  ],
+                  [
+                    "VAR",
+                    "pc2"
+                  ],
+                  [
+                    "VAR",
+                    "s00"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "NOT",
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "p08_0"
+                  ],
+                  [
+                    "VAR",
+                    "p08_1"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "ctrl_f0_n"
+            ],
+            [
+              "VAR",
+              "ctrl_f1_n"
+            ],
+            [
+              "VAR",
+              "ctrl_r0_n"
+            ],
+            [
+              "VAR",
+              "ctrl_r1_n"
+            ],
+            [
+              "VAR",
+              "s00"
+            ]
+          ]
+        ],
+        "read_ack": [
+          "AND",
+          [
+            [
+              "VAR",
+              "p08_0_n"
+            ],
+            [
+              "VAR",
+              "p08_1_n"
+            ],
+            [
+              "VAR",
+              "sda_in"
+            ]
+          ]
+        ],
+        "recv_en": [
+          "AND",
+          [
+            [
+              "NOT",
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "p08_0"
+                  ],
+                  [
+                    "VAR",
+                    "p08_1"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "ctrl_f0_n"
+            ],
+            [
+              "VAR",
+              "ctrl_f1_n"
+            ],
+            [
+              "VAR",
+              "ctrl_r0_n"
+            ],
+            [
+              "VAR",
+              "ctrl_r1_n"
+            ],
+            [
+              "VAR",
+              "s00"
+            ]
+          ]
+        ],
+        "rx_match": [
+          "NOT",
+          [
+            "OR",
+            [
+              [
+                "VAR",
+                "rxq0"
+              ],
+              [
+                "VAR",
+                "rxq1"
+              ],
+              [
+                "VAR",
+                "rxq2"
+              ]
+            ]
+          ]
+        ],
+        "rx_terminal": [
+          "AND",
+          [
+            [
+              "NOT",
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "p08_0"
+                  ],
+                  [
+                    "VAR",
+                    "p08_1"
+                  ]
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "ctrl_f0_n"
+            ],
+            [
+              "VAR",
+              "ctrl_f1_n"
+            ],
+            [
+              "VAR",
+              "ctrl_r0_n"
+            ],
+            [
+              "VAR",
+              "ctrl_r1_n"
+            ],
+            [
+              "VAR",
+              "pc0"
+            ],
+            [
+              "VAR",
+              "pc1"
+            ],
+            [
+              "VAR",
+              "pc2"
+            ],
+            [
+              "VAR",
+              "s00"
+            ]
+          ]
+        ]
+      },
+      "component_class": "recovered_predicate_network",
+      "dffs": [],
+      "interface_inputs": [
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0_n",
+        "ctrl_r1_n",
+        "p08_0",
+        "p08_0_n",
+        "p08_1",
+        "p08_1_n",
+        "p12_0",
+        "p12_0_n",
+        "p12_1_n",
+        "pc0",
+        "pc1",
+        "pc2",
+        "rxq0",
+        "rxq1",
+        "rxq2",
+        "s00",
+        "scl",
+        "sda_in"
+      ],
+      "interface_outputs": [
+        "ack_enter",
+        "mismatch_reset",
+        "p08_eq1",
+        "p08_eq2",
+        "p08_ne0",
+        "p12_eq0",
+        "p12_eq1",
+        "pc7",
+        "pc7_n",
+        "pc_rx_inc",
+        "read_ack",
+        "recv_en",
+        "rx_match",
+        "rx_terminal"
+      ],
+      "selector_sha256": "57c1a6b577c09323f8df1cf1b4181ea2b2ba15f62a3d5940a34ab093e3f5c9e4",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    },
+    "selector_snapshot_gpio_payload": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "bootstrap_validation": {
+        "method": "symbolic-extract -> generic-remap -> symbolic-reextract exact expression equality",
+        "original_area_um2": 90144.0,
+        "original_cells": 20,
+        "remapped_area_um2": 88666.64,
+        "remapped_cells": 19,
+        "status": "PASS"
+      },
+      "combinational_outputs": {},
+      "component_class": "selector_snapshot_gpio_payload",
+      "dffs": [
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "MUX",
+            [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "p08_eq1"
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "p12_0"
+            ],
+            [
+              "VAR",
+              "sda_in"
+            ]
+          ],
+          "q": "p12_0",
+          "qb": "p12_0_n",
+          "reset": "reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "MUX",
+            [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "p08_eq1"
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "p12_1"
+            ],
+            [
+              "VAR",
+              "rx_old_p07_0"
+            ]
+          ],
+          "q": "p12_1",
+          "qb": "p12_1_n",
+          "reset": "reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "MUX",
+            [
+              "VAR",
+              "ctrl_r0_read"
+            ],
+            [
+              "VAR",
+              "snap0"
+            ],
+            [
+              "VAR",
+              "gpio0_in"
+            ]
+          ],
+          "q": "snap0",
+          "qb": "snap0_n",
+          "reset": "reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "MUX",
+            [
+              "VAR",
+              "ctrl_r0_read"
+            ],
+            [
+              "VAR",
+              "snap1"
+            ],
+            [
+              "VAR",
+              "gpio1_in"
+            ]
+          ],
+          "q": "snap1",
+          "qb": "snap1_n",
+          "reset": "reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "MUX",
+            [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "p08_eq2"
+                ],
+                [
+                  "VAR",
+                  "p12_eq1"
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "gdata0"
+            ],
+            [
+              "VAR",
+              "sda_in"
+            ]
+          ],
+          "q": "gdata0",
+          "qb": "gdata0_n",
+          "reset": "reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "MUX",
+            [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "p08_eq2"
+                ],
+                [
+                  "VAR",
+                  "p12_eq1"
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "gdata1"
+            ],
+            [
+              "VAR",
+              "rx_old_p07_0"
+            ]
+          ],
+          "q": "gdata1",
+          "qb": "gdata1_n",
+          "reset": "reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "MUX",
+            [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "p08_eq2"
+                ],
+                [
+                  "VAR",
+                  "p12_eq0"
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "gdirp0"
+            ],
+            [
+              "VAR",
+              "sda_in"
+            ]
+          ],
+          "q": "gdirp0",
+          "qb": "gdir0",
+          "reset": "reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "MUX",
+            [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "p08_eq2"
+                ],
+                [
+                  "VAR",
+                  "p12_eq0"
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "gdirp1"
+            ],
+            [
+              "VAR",
+              "rx_old_p07_0"
+            ]
+          ],
+          "q": "gdirp1",
+          "qb": "gdir1",
+          "reset": "reset"
+        }
+      ],
+      "interface_inputs": [
+        "ctrl_r0_read",
+        "gpio0_in",
+        "gpio1_in",
+        "p08_eq1",
+        "p08_eq2",
+        "p12_eq0",
+        "p12_eq1",
+        "reset",
+        "rx_old_p07_0",
+        "rx_terminal",
+        "scl",
+        "sda_in"
+      ],
+      "interface_outputs": [
+        "gdata0",
+        "gdata1",
+        "gdir0",
+        "gdir1",
+        "gdirp0",
+        "gdirp1",
+        "p12_0",
+        "p12_0_n",
+        "p12_1",
+        "p12_1_n",
+        "snap0",
+        "snap1"
+      ],
+      "selector_sha256": "501080851c06ee4b3be061b6fe58d83a7f3ab95f89b4b3b6ead51c403ae1645d",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    },
+    "shared_counter_and_event_latch": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "bootstrap_validation": {
+        "method": "symbolic-extract -> generic-remap -> symbolic-reextract exact expression equality",
+        "original_area_um2": 68409.28,
+        "original_cells": 23,
+        "remapped_area_um2": 68753.58,
+        "remapped_cells": 23,
+        "status": "PASS"
+      },
+      "combinational_outputs": {
+        "s00": [
+          "NOT",
+          [
+            "OR",
+            [
+              [
+                "NOT",
+                [
+                  "OR",
+                  [
+                    [
+                      "NOT",
+                      [
+                        "AND",
+                        [
+                          [
+                            "VAR",
+                            "ctrl_f0"
+                          ],
+                          [
+                            "VAR",
+                            "ctrl_f1_n"
+                          ],
+                          [
+                            "VAR",
+                            "ctrl_r0"
+                          ],
+                          [
+                            "VAR",
+                            "ctrl_r1_n"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "VAR",
+                      "scl"
+                    ],
+                    [
+                      "VAR",
+                      "sda_n"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "VAR",
+                "mismatch_reset"
+              ],
+              [
+                "VAR",
+                "reset"
+              ],
+              [
+                "VAR",
+                "s00_n"
+              ],
+              [
+                "VAR",
+                "stop_evt"
+              ]
+            ]
+          ]
+        ]
+      },
+      "component_class": "shared_counter_and_event_latch",
+      "dffs": [
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "AND",
+            [
+              [
+                "NOT",
+                [
+                  "AND",
+                  [
+                    [
+                      "VAR",
+                      "ctrl_f0"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_f1_n"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_r0"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_r1_n"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "OR",
+                [
+                  [
+                    "AND",
+                    [
+                      [
+                        "VAR",
+                        "ctrl_f0"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_f1_n"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_r0"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_r1"
+                      ]
+                    ]
+                  ],
+                  [
+                    "XOR",
+                    [
+                      "OR",
+                      [
+                        [
+                          "AND",
+                          [
+                            [
+                              "VAR",
+                              "ctrl_f0_n"
+                            ],
+                            [
+                              "VAR",
+                              "ctrl_f1_n"
+                            ],
+                            [
+                              "VAR",
+                              "ctrl_r0"
+                            ],
+                            [
+                              "VAR",
+                              "ctrl_r1_n"
+                            ]
+                          ]
+                        ],
+                        [
+                          "VAR",
+                          "pc_rx_inc"
+                        ]
+                      ]
+                    ],
+                    [
+                      "VAR",
+                      "pc0"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "q": "pc0",
+          "qb": "pc0_n",
+          "reset": "start_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "AND",
+            [
+              [
+                "NOT",
+                [
+                  "AND",
+                  [
+                    [
+                      "VAR",
+                      "ctrl_f0"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_f1_n"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_r0"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_r1_n"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "OR",
+                [
+                  [
+                    "AND",
+                    [
+                      [
+                        "VAR",
+                        "ctrl_f0"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_f1_n"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_r0"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_r1"
+                      ]
+                    ]
+                  ],
+                  [
+                    "XOR",
+                    [
+                      "MUX",
+                      [
+                        "VAR",
+                        "pc0"
+                      ],
+                      [
+                        "AND",
+                        [
+                          [
+                            "VAR",
+                            "ctrl_f0_n"
+                          ],
+                          [
+                            "VAR",
+                            "ctrl_f1_n"
+                          ],
+                          [
+                            "VAR",
+                            "ctrl_r0"
+                          ],
+                          [
+                            "VAR",
+                            "ctrl_r1_n"
+                          ]
+                        ]
+                      ],
+                      [
+                        "VAR",
+                        "pc_rx_inc"
+                      ]
+                    ],
+                    [
+                      "VAR",
+                      "pc1"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "q": "pc1",
+          "qb": "pc1_n",
+          "reset": "start_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "AND",
+            [
+              [
+                "NOT",
+                [
+                  "AND",
+                  [
+                    [
+                      "VAR",
+                      "ctrl_f0"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_f1_n"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_r0"
+                    ],
+                    [
+                      "VAR",
+                      "ctrl_r1_n"
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "OR",
+                [
+                  [
+                    "AND",
+                    [
+                      [
+                        "VAR",
+                        "ctrl_f0"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_f1_n"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_r0"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_r1"
+                      ]
+                    ]
+                  ],
+                  [
+                    "XOR",
+                    [
+                      "AND",
+                      [
+                        [
+                          "MUX",
+                          [
+                            "VAR",
+                            "pc0"
+                          ],
+                          [
+                            "AND",
+                            [
+                              [
+                                "VAR",
+                                "ctrl_f0_n"
+                              ],
+                              [
+                                "VAR",
+                                "ctrl_f1_n"
+                              ],
+                              [
+                                "VAR",
+                                "ctrl_r0"
+                              ],
+                              [
+                                "VAR",
+                                "ctrl_r1_n"
+                              ]
+                            ]
+                          ],
+                          [
+                            "VAR",
+                            "pc_rx_inc"
+                          ]
+                        ],
+                        [
+                          "XNOR",
+                          [
+                            "VAR",
+                            "pc0"
+                          ],
+                          [
+                            "VAR",
+                            "pc1"
+                          ]
+                        ]
+                      ]
+                    ],
+                    [
+                      "VAR",
+                      "pc2"
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "q": "pc2",
+          "qb": "pc2_n",
+          "reset": "start_reset"
+        }
+      ],
+      "interface_inputs": [
+        "ctrl_f0",
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0",
+        "ctrl_r1",
+        "ctrl_r1_n",
+        "mismatch_reset",
+        "pc_rx_inc",
+        "reset",
+        "scl",
+        "sda_n",
+        "start_evt",
+        "start_reset",
+        "stop_evt"
+      ],
+      "interface_outputs": [
+        "pc0",
+        "pc1",
+        "pc1_n",
+        "pc2",
+        "s00"
+      ],
+      "selector_sha256": "6bb711eb24509bd0ca666120dab584931937f0f1df7b55f0bd654ca5c334f01b",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    }
+  },
+  "note": "Migration cache only. Runtime generic transforms should eventually emit these neutral contracts directly; no protocol-specific rule is encoded here.",
+  "version": "bio2rtl-neutral-component-contract-cache-v2-bootstrap-migration"
+}

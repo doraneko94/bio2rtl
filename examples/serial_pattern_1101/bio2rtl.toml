@@ -1,0 +1,20 @@
+schema = "bio2rtl-project-v1.1"
+program = "serial_pattern_1101.dis"
+name = "serial_pattern_1101"
+
+[[io]]
+name = "TICK"
+gpio = 16
+support = "direct"
+
+[[io]]
+name = "OUT"
+gpio = 18
+support = "gpio_o"
+
+[clock]
+mode = "io_edges"
+source = "TICK"
+
+[physical_support]
+technology = "TR-1um"

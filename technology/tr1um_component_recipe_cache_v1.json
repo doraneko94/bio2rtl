@@ -1,0 +1,1771 @@
+{
+  "assignments": [
+    {
+      "lhs": "sda_drive_low",
+      "rhs": "sda_oe"
+    },
+    {
+      "lhs": "gpio0_out",
+      "rhs": "gdata0"
+    },
+    {
+      "lhs": "gpio1_out",
+      "rhs": "gdata1"
+    },
+    {
+      "lhs": "gpio0_oe",
+      "rhs": "gdir0"
+    },
+    {
+      "lhs": "gpio1_oe",
+      "rhs": "gdir1"
+    }
+  ],
+  "bootstrap_source": "compiler-generated Physical DHIR; trusted SV not read",
+  "component_order": [
+    "event_detectors",
+    "phase_factorized_control",
+    "recovered_predicate_network",
+    "shared_counter_and_event_latch",
+    "shift_observation_quotient",
+    "direct_protocol_state",
+    "selector_snapshot_gpio_payload",
+    "observation_tx_selector",
+    "open_drain_oe_recurrence"
+  ],
+  "ports": [
+    {
+      "direction": "input",
+      "name": "reset"
+    },
+    {
+      "direction": "input",
+      "name": "scl"
+    },
+    {
+      "direction": "input",
+      "name": "sda_in"
+    },
+    {
+      "direction": "input",
+      "name": "gpio0_in"
+    },
+    {
+      "direction": "input",
+      "name": "gpio1_in"
+    },
+    {
+      "direction": "output",
+      "name": "sda_drive_low"
+    },
+    {
+      "direction": "output",
+      "name": "gpio0_out"
+    },
+    {
+      "direction": "output",
+      "name": "gpio1_out"
+    },
+    {
+      "direction": "output",
+      "name": "gpio0_oe"
+    },
+    {
+      "direction": "output",
+      "name": "gpio1_oe"
+    }
+  ],
+  "recipes": {
+    "direct_protocol_state": {
+      "area_um2": 26968.08,
+      "cell_histogram": {
+        "AND2_X1": 3,
+        "DFFR": 2,
+        "OR2": 1,
+        "XOR2": 2
+      },
+      "cells": [
+        {
+          "component": "direct_protocol_state",
+          "name": "u_and2_x1_021",
+          "ports": {
+            "A": "rx_match",
+            "B": "sda_n",
+            "Y": "p08_match_write"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "direct_protocol_state",
+          "name": "u_or2_011",
+          "ports": {
+            "A": "p08_ne0",
+            "B": "p08_match_write",
+            "Y": "p08_adv_ok"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "direct_protocol_state",
+          "name": "u_and2_x1_022",
+          "ports": {
+            "A": "rx_terminal",
+            "B": "p08_adv_ok",
+            "Y": "p08_inc"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "direct_protocol_state",
+          "name": "u_xor2_004",
+          "ports": {
+            "A": "p08_0",
+            "B": "p08_inc",
+            "Y": "p08_d0"
+          },
+          "type": "XOR2"
+        },
+        {
+          "component": "direct_protocol_state",
+          "name": "u_and2_x1_023",
+          "ports": {
+            "A": "p08_0",
+            "B": "p08_inc",
+            "Y": "p08_carry"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "direct_protocol_state",
+          "name": "u_xor2_005",
+          "ports": {
+            "A": "p08_1",
+            "B": "p08_carry",
+            "Y": "p08_d1"
+          },
+          "type": "XOR2"
+        },
+        {
+          "component": "direct_protocol_state",
+          "name": "u_p08_0",
+          "ports": {
+            "CK": "scl",
+            "D": "p08_d0",
+            "Q": "p08_0",
+            "QB": "p08_0_n",
+            "RST": "start_reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "direct_protocol_state",
+          "name": "u_p08_1",
+          "ports": {
+            "CK": "scl",
+            "D": "p08_d1",
+            "Q": "p08_1",
+            "QB": "p08_1_n",
+            "RST": "start_reset"
+          },
+          "type": "DFFR"
+        }
+      ],
+      "component_class": "direct_protocol_state",
+      "interface_inputs": [
+        "p08_ne0",
+        "rx_match",
+        "rx_terminal",
+        "scl",
+        "sda_n",
+        "start_reset"
+      ],
+      "interface_outputs": [
+        "p08_0",
+        "p08_0_n",
+        "p08_1",
+        "p08_1_n"
+      ],
+      "selector_sha256": "835c51bf33d0792da416e590966b292f279552a687b08449517c1ec983e61b76"
+    },
+    "event_detectors": {
+      "area_um2": 44483.560000000005,
+      "cell_histogram": {
+        "DEL4": 4,
+        "INV_X1": 2,
+        "INV_X4": 1,
+        "NOR3": 2,
+        "OR2": 1,
+        "OR3": 1
+      },
+      "cells": [
+        {
+          "component": "event_detectors",
+          "name": "u_inv_x4_000",
+          "ports": {
+            "A": "scl",
+            "Y": "scl_n"
+          },
+          "type": "INV_X4"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_del4_000",
+          "ports": {
+            "A": "sda_in",
+            "Y": "sda_d1"
+          },
+          "type": "DEL4"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_del4_001",
+          "ports": {
+            "A": "sda_d1",
+            "Y": "sda_d2"
+          },
+          "type": "DEL4"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_del4_002",
+          "ports": {
+            "A": "sda_d2",
+            "Y": "sda_d3"
+          },
+          "type": "DEL4"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_del4_003",
+          "ports": {
+            "A": "sda_d3",
+            "Y": "sda_d4"
+          },
+          "type": "DEL4"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_inv_x1_000",
+          "ports": {
+            "A": "sda_in",
+            "Y": "sda_n"
+          },
+          "type": "INV_X1"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_inv_x1_001",
+          "ports": {
+            "A": "sda_d4",
+            "Y": "sda_delayed_n"
+          },
+          "type": "INV_X1"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_nor3_000",
+          "ports": {
+            "A": "scl_n",
+            "B": "sda_delayed_n",
+            "C": "sda_in",
+            "Y": "start_evt"
+          },
+          "type": "NOR3"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_nor3_001",
+          "ports": {
+            "A": "scl_n",
+            "B": "sda_n",
+            "C": "sda_d4",
+            "Y": "stop_evt"
+          },
+          "type": "NOR3"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_or3_000",
+          "ports": {
+            "A": "reset",
+            "B": "start_evt",
+            "C": "stop_evt",
+            "Y": "proto_reset"
+          },
+          "type": "OR3"
+        },
+        {
+          "component": "event_detectors",
+          "name": "u_or2_000",
+          "ports": {
+            "A": "reset",
+            "B": "start_evt",
+            "Y": "start_reset"
+          },
+          "type": "OR2"
+        }
+      ],
+      "component_class": "event_detectors",
+      "interface_inputs": [
+        "reset",
+        "scl",
+        "sda_in"
+      ],
+      "interface_outputs": [
+        "proto_reset",
+        "scl_n",
+        "sda_n",
+        "start_evt",
+        "start_reset",
+        "stop_evt"
+      ],
+      "selector_sha256": "683af7b8790169ea9a15818a42adc35687373e6dfd4ab7c499293672283f5921"
+    },
+    "observation_tx_selector": {
+      "area_um2": 31199.84,
+      "cell_histogram": {
+        "MUX2": 7,
+        "NAND2": 1,
+        "NAND3": 1
+      },
+      "cells": [
+        {
+          "component": "observation_tx_selector",
+          "name": "u_mux2_009",
+          "ports": {
+            "A": "gdirp0",
+            "B": "gdirp1",
+            "S": "pc0",
+            "Y": "tx_dirbit"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "observation_tx_selector",
+          "name": "u_mux2_010",
+          "ports": {
+            "A": "gdata0",
+            "B": "gdata1",
+            "S": "pc0",
+            "Y": "tx_databit"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "observation_tx_selector",
+          "name": "u_mux2_011",
+          "ports": {
+            "A": "snap0",
+            "B": "snap1",
+            "S": "pc0",
+            "Y": "tx_snapbit"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "observation_tx_selector",
+          "name": "u_mux2_012",
+          "ports": {
+            "A": "tx_dirbit",
+            "B": "tx_databit",
+            "S": "p12_0",
+            "Y": "tx_src01"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "observation_tx_selector",
+          "name": "u_mux2_013",
+          "ports": {
+            "A": "tx_snapbit",
+            "B": "1'b0",
+            "S": "p12_0",
+            "Y": "tx_src23"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "observation_tx_selector",
+          "name": "u_mux2_014",
+          "ports": {
+            "A": "tx_src01",
+            "B": "tx_src23",
+            "S": "p12_1",
+            "Y": "tx_low_data_bit"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "observation_tx_selector",
+          "name": "u_nand2_001",
+          "ports": {
+            "A": "pc1_n",
+            "B": "tx_low_data_bit",
+            "Y": "tx_low_half_drive"
+          },
+          "type": "NAND2"
+        },
+        {
+          "component": "observation_tx_selector",
+          "name": "u_nand3_003",
+          "ports": {
+            "A": "pc0",
+            "B": "p12_0",
+            "C": "p12_1",
+            "Y": "tx_high_half_drive"
+          },
+          "type": "NAND3"
+        },
+        {
+          "component": "observation_tx_selector",
+          "name": "u_mux2_015",
+          "ports": {
+            "A": "tx_low_half_drive",
+            "B": "tx_high_half_drive",
+            "S": "pc2",
+            "Y": "tx_b005"
+          },
+          "type": "MUX2"
+        }
+      ],
+      "component_class": "observation_tx_selector",
+      "interface_inputs": [
+        "gdata0",
+        "gdata1",
+        "gdirp0",
+        "gdirp1",
+        "p12_0",
+        "p12_1",
+        "pc0",
+        "pc1_n",
+        "pc2",
+        "snap0",
+        "snap1"
+      ],
+      "interface_outputs": [
+        "tx_b005"
+      ],
+      "selector_sha256": "a26af837277acbca129bc0312f0e10161302cd56146b290a145c51dc6db1a846"
+    },
+    "open_drain_oe_recurrence": {
+      "area_um2": 16682.9,
+      "cell_histogram": {
+        "AND2_X1": 1,
+        "AND3_X1": 1,
+        "AND4_X1": 1,
+        "DFFR": 1,
+        "OR4": 1
+      },
+      "cells": [
+        {
+          "component": "open_drain_oe_recurrence",
+          "name": "u_and2_x1_028",
+          "ports": {
+            "A": "ctrl_f0",
+            "B": "ctrl_r0",
+            "Y": "oe_t_f0r0"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "open_drain_oe_recurrence",
+          "name": "u_and3_x1_004",
+          "ports": {
+            "A": "tx_b005",
+            "B": "ctrl_r0",
+            "C": "pc7_n",
+            "Y": "oe_t_tx"
+          },
+          "type": "AND3_X1"
+        },
+        {
+          "component": "open_drain_oe_recurrence",
+          "name": "u_and4_x1_004",
+          "ports": {
+            "A": "sda_oe",
+            "B": "ctrl_f0_n",
+            "C": "ctrl_f1_n",
+            "D": "ctrl_r0_n",
+            "Y": "oe_t_hold"
+          },
+          "type": "AND4_X1"
+        },
+        {
+          "component": "open_drain_oe_recurrence",
+          "name": "u_or4_000",
+          "ports": {
+            "A": "ctrl_r1",
+            "B": "oe_t_f0r0",
+            "C": "oe_t_tx",
+            "D": "oe_t_hold",
+            "Y": "sda_oe_d"
+          },
+          "type": "OR4"
+        },
+        {
+          "component": "open_drain_oe_recurrence",
+          "name": "u_sda_oe",
+          "ports": {
+            "CK": "scl_n",
+            "D": "sda_oe_d",
+            "Q": "sda_oe",
+            "QB": "sda_oe_n",
+            "RST": "proto_reset"
+          },
+          "type": "DFFR"
+        }
+      ],
+      "component_class": "open_drain_oe_recurrence",
+      "interface_inputs": [
+        "ctrl_f0",
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0",
+        "ctrl_r0_n",
+        "ctrl_r1",
+        "pc7_n",
+        "proto_reset",
+        "scl_n",
+        "tx_b005"
+      ],
+      "interface_outputs": [
+        "sda_oe"
+      ],
+      "selector_sha256": "bb0e14ced597515129e3c7828014e8c3c766b3796eaec814ca75428f9ef12048"
+    },
+    "phase_factorized_control": {
+      "area_um2": 42517.92,
+      "cell_histogram": {
+        "AND2_X1": 5,
+        "DFFR": 4,
+        "OR2": 3
+      },
+      "cells": [
+        {
+          "component": "phase_factorized_control",
+          "name": "u_or2_001",
+          "ports": {
+            "A": "ctrl_f0_n",
+            "B": "ctrl_r1",
+            "Y": "ctrl_r0_base_or"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_and2_x1_000",
+          "ports": {
+            "A": "ctrl_r0",
+            "B": "ctrl_r0_base_or",
+            "Y": "ctrl_r0_base"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_and2_x1_001",
+          "ports": {
+            "A": "ack_enter",
+            "B": "read_ack",
+            "Y": "ctrl_r0_read"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_or2_002",
+          "ports": {
+            "A": "ctrl_r0_base",
+            "B": "ctrl_r0_read",
+            "Y": "ctrl_d_r0"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_and2_x1_002",
+          "ports": {
+            "A": "ctrl_r1",
+            "B": "ctrl_r0_n",
+            "Y": "ctrl_d_f1"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_and2_x1_003",
+          "ports": {
+            "A": "ctrl_f0_n",
+            "B": "pc7",
+            "Y": "ctrl_f0_done"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_or2_003",
+          "ports": {
+            "A": "ctrl_r1",
+            "B": "ctrl_f0_done",
+            "Y": "ctrl_f0_or"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_and2_x1_004",
+          "ports": {
+            "A": "ctrl_r0",
+            "B": "ctrl_f0_or",
+            "Y": "ctrl_d_f0"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_ctrl_r0",
+          "ports": {
+            "CK": "scl",
+            "D": "ctrl_d_r0",
+            "Q": "ctrl_r0",
+            "QB": "ctrl_r0_n",
+            "RST": "proto_reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_ctrl_r1",
+          "ports": {
+            "CK": "scl",
+            "D": "ack_enter",
+            "Q": "ctrl_r1",
+            "QB": "ctrl_r1_n",
+            "RST": "proto_reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_ctrl_f0",
+          "ports": {
+            "CK": "scl_n",
+            "D": "ctrl_d_f0",
+            "Q": "ctrl_f0",
+            "QB": "ctrl_f0_n",
+            "RST": "proto_reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "phase_factorized_control",
+          "name": "u_ctrl_f1",
+          "ports": {
+            "CK": "scl_n",
+            "D": "ctrl_d_f1",
+            "Q": "ctrl_f1",
+            "QB": "ctrl_f1_n",
+            "RST": "proto_reset"
+          },
+          "type": "DFFR"
+        }
+      ],
+      "component_class": "phase_factorized_control",
+      "control_encoding_plan": {
+        "bits": {
+          "fall": 2,
+          "rise": 2
+        },
+        "fall_component_codes": [
+          0,
+          1,
+          0,
+          2,
+          1
+        ],
+        "rise_component_codes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "source": "technology mapping choice for this content-addressed control recipe; not semantic code labels",
+        "version": "bio2rtl-control-physical-encoding-plan-v1"
+      },
+      "interface_inputs": [
+        "ack_enter",
+        "pc7",
+        "proto_reset",
+        "read_ack",
+        "scl",
+        "scl_n"
+      ],
+      "interface_outputs": [
+        "ctrl_f0",
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0",
+        "ctrl_r0_n",
+        "ctrl_r0_read",
+        "ctrl_r1",
+        "ctrl_r1_n"
+      ],
+      "selector_sha256": "d27852f49f9ceb6296db001f28224fc0588852e2ef3275707ba11476347f9851"
+    },
+    "recovered_predicate_network": {
+      "area_um2": 43663.5,
+      "cell_histogram": {
+        "AND2_X1": 9,
+        "AND3_X1": 2,
+        "AND4_X1": 1,
+        "INV_X1": 1,
+        "NAND2": 1,
+        "NAND3": 2,
+        "NOR2": 1,
+        "NOR3": 1,
+        "OR2": 2
+      },
+      "cells": [
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and4_x1_000",
+          "ports": {
+            "A": "ctrl_f0_n",
+            "B": "ctrl_f1_n",
+            "C": "ctrl_r0_n",
+            "D": "ctrl_r1_n",
+            "Y": "ctrl_state0"
+          },
+          "type": "AND4_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and2_x1_005",
+          "ports": {
+            "A": "p08_0_n",
+            "B": "p08_1_n",
+            "Y": "p08_eq0"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_or2_004",
+          "ports": {
+            "A": "p08_0",
+            "B": "p08_1",
+            "Y": "p08_ne0"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and2_x1_006",
+          "ports": {
+            "A": "p08_0",
+            "B": "p08_1_n",
+            "Y": "p08_eq1"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and2_x1_007",
+          "ports": {
+            "A": "p08_0_n",
+            "B": "p08_1",
+            "Y": "p08_eq2"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_nand2_000",
+          "ports": {
+            "A": "p08_0",
+            "B": "p08_1",
+            "Y": "p08_ne3"
+          },
+          "type": "NAND2"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and2_x1_008",
+          "ports": {
+            "A": "p12_0_n",
+            "B": "p12_1_n",
+            "Y": "p12_eq0"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and2_x1_009",
+          "ports": {
+            "A": "p12_0",
+            "B": "p12_1_n",
+            "Y": "p12_eq1"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_nor3_002",
+          "ports": {
+            "A": "rxq0",
+            "B": "rxq1",
+            "C": "rxq2",
+            "Y": "rx_match"
+          },
+          "type": "NOR3"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_inv_x1_002",
+          "ports": {
+            "A": "rx_match",
+            "Y": "rx_match_n"
+          },
+          "type": "INV_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and3_x1_000",
+          "ports": {
+            "A": "pc0",
+            "B": "pc1",
+            "C": "pc2",
+            "Y": "pc7"
+          },
+          "type": "AND3_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_nand3_000",
+          "ports": {
+            "A": "pc0",
+            "B": "pc1",
+            "C": "pc2",
+            "Y": "pc7_n"
+          },
+          "type": "NAND3"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and3_x1_001",
+          "ports": {
+            "A": "ctrl_state0",
+            "B": "s00",
+            "C": "p08_ne3",
+            "Y": "recv_en"
+          },
+          "type": "AND3_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and2_x1_010",
+          "ports": {
+            "A": "recv_en",
+            "B": "pc7",
+            "Y": "rx_terminal"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_nand3_001",
+          "ports": {
+            "A": "rx_terminal",
+            "B": "p08_eq0",
+            "C": "rx_match_n",
+            "Y": "rx_mismatch_n"
+          },
+          "type": "NAND3"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and2_x1_011",
+          "ports": {
+            "A": "recv_en",
+            "B": "rx_mismatch_n",
+            "Y": "pc_rx_inc"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_nor2_000",
+          "ports": {
+            "A": "scl",
+            "B": "rx_mismatch_n",
+            "Y": "mismatch_reset"
+          },
+          "type": "NOR2"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_or2_005",
+          "ports": {
+            "A": "p08_ne0",
+            "B": "rx_match",
+            "Y": "ack_ok"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and2_x1_012",
+          "ports": {
+            "A": "rx_terminal",
+            "B": "ack_ok",
+            "Y": "ack_enter"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "recovered_predicate_network",
+          "name": "u_and2_x1_013",
+          "ports": {
+            "A": "p08_eq0",
+            "B": "sda_in",
+            "Y": "read_ack"
+          },
+          "type": "AND2_X1"
+        }
+      ],
+      "component_class": "recovered_predicate_network",
+      "interface_inputs": [
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0_n",
+        "ctrl_r1_n",
+        "p08_0",
+        "p08_0_n",
+        "p08_1",
+        "p08_1_n",
+        "p12_0",
+        "p12_0_n",
+        "p12_1_n",
+        "pc0",
+        "pc1",
+        "pc2",
+        "rxq0",
+        "rxq1",
+        "rxq2",
+        "s00",
+        "scl",
+        "sda_in"
+      ],
+      "interface_outputs": [
+        "ack_enter",
+        "mismatch_reset",
+        "p08_eq1",
+        "p08_eq2",
+        "p08_ne0",
+        "p12_eq0",
+        "p12_eq1",
+        "pc7",
+        "pc7_n",
+        "pc_rx_inc",
+        "read_ack",
+        "recv_en",
+        "rx_match",
+        "rx_terminal"
+      ],
+      "selector_sha256": "57c1a6b577c09323f8df1cf1b4181ea2b2ba15f62a3d5940a34ab093e3f5c9e4"
+    },
+    "selector_snapshot_gpio_payload": {
+      "area_um2": 90144.0,
+      "cell_histogram": {
+        "AND2_X1": 4,
+        "DFFR": 8,
+        "MUX2": 8
+      },
+      "cells": [
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_and2_x1_024",
+          "ports": {
+            "A": "rx_terminal",
+            "B": "p08_eq1",
+            "Y": "p12_load"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_mux2_001",
+          "ports": {
+            "A": "p12_0",
+            "B": "sda_in",
+            "S": "p12_load",
+            "Y": "p12_d0"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_mux2_002",
+          "ports": {
+            "A": "p12_1",
+            "B": "rx_old_p07_0",
+            "S": "p12_load",
+            "Y": "p12_d1"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_p12_0",
+          "ports": {
+            "CK": "scl",
+            "D": "p12_d0",
+            "Q": "p12_0",
+            "QB": "p12_0_n",
+            "RST": "reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_p12_1",
+          "ports": {
+            "CK": "scl",
+            "D": "p12_d1",
+            "Q": "p12_1",
+            "QB": "p12_1_n",
+            "RST": "reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_mux2_003",
+          "ports": {
+            "A": "snap0",
+            "B": "gpio0_in",
+            "S": "ctrl_r0_read",
+            "Y": "snap_d0"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_mux2_004",
+          "ports": {
+            "A": "snap1",
+            "B": "gpio1_in",
+            "S": "ctrl_r0_read",
+            "Y": "snap_d1"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_snap0",
+          "ports": {
+            "CK": "scl",
+            "D": "snap_d0",
+            "Q": "snap0",
+            "QB": "snap0_n",
+            "RST": "reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_snap1",
+          "ports": {
+            "CK": "scl",
+            "D": "snap_d1",
+            "Q": "snap1",
+            "QB": "snap1_n",
+            "RST": "reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_and2_x1_025",
+          "ports": {
+            "A": "rx_terminal",
+            "B": "p08_eq2",
+            "Y": "gpio_write_stage"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_and2_x1_026",
+          "ports": {
+            "A": "gpio_write_stage",
+            "B": "p12_eq1",
+            "Y": "gdata_load"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_and2_x1_027",
+          "ports": {
+            "A": "gpio_write_stage",
+            "B": "p12_eq0",
+            "Y": "gdir_load"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_mux2_005",
+          "ports": {
+            "A": "gdata0",
+            "B": "sda_in",
+            "S": "gdata_load",
+            "Y": "gdata_d0"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_mux2_006",
+          "ports": {
+            "A": "gdata1",
+            "B": "rx_old_p07_0",
+            "S": "gdata_load",
+            "Y": "gdata_d1"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_gdata0",
+          "ports": {
+            "CK": "scl",
+            "D": "gdata_d0",
+            "Q": "gdata0",
+            "QB": "gdata0_n",
+            "RST": "reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_gdata1",
+          "ports": {
+            "CK": "scl",
+            "D": "gdata_d1",
+            "Q": "gdata1",
+            "QB": "gdata1_n",
+            "RST": "reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_mux2_007",
+          "ports": {
+            "A": "gdirp0",
+            "B": "sda_in",
+            "S": "gdir_load",
+            "Y": "gdirp_d0"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_mux2_008",
+          "ports": {
+            "A": "gdirp1",
+            "B": "rx_old_p07_0",
+            "S": "gdir_load",
+            "Y": "gdirp_d1"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_gdir0",
+          "ports": {
+            "CK": "scl",
+            "D": "gdirp_d0",
+            "Q": "gdirp0",
+            "QB": "gdir0",
+            "RST": "reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "selector_snapshot_gpio_payload",
+          "name": "u_gdir1",
+          "ports": {
+            "CK": "scl",
+            "D": "gdirp_d1",
+            "Q": "gdirp1",
+            "QB": "gdir1",
+            "RST": "reset"
+          },
+          "type": "DFFR"
+        }
+      ],
+      "component_class": "selector_snapshot_gpio_payload",
+      "interface_inputs": [
+        "ctrl_r0_read",
+        "gpio0_in",
+        "gpio1_in",
+        "p08_eq1",
+        "p08_eq2",
+        "p12_eq0",
+        "p12_eq1",
+        "reset",
+        "rx_old_p07_0",
+        "rx_terminal",
+        "scl",
+        "sda_in"
+      ],
+      "interface_outputs": [
+        "gdata0",
+        "gdata1",
+        "gdir0",
+        "gdir1",
+        "gdirp0",
+        "gdirp1",
+        "p12_0",
+        "p12_0_n",
+        "p12_1",
+        "p12_1_n",
+        "snap0",
+        "snap1"
+      ],
+      "selector_sha256": "501080851c06ee4b3be061b6fe58d83a7f3ab95f89b4b3b6ead51c403ae1645d"
+    },
+    "shared_counter_and_event_latch": {
+      "area_um2": 68409.28,
+      "cell_histogram": {
+        "AND2_X1": 4,
+        "AND4_X1": 2,
+        "DFFR": 3,
+        "MUX2": 1,
+        "NAND4": 1,
+        "NOR2": 1,
+        "NOR3": 2,
+        "OR2": 4,
+        "OR3": 1,
+        "XNOR2": 1,
+        "XOR2": 3
+      },
+      "cells": [
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_and4_x1_001",
+          "ports": {
+            "A": "ctrl_f0",
+            "B": "ctrl_f1_n",
+            "C": "ctrl_r0",
+            "D": "ctrl_r1",
+            "Y": "pc_tx_seed"
+          },
+          "type": "AND4_X1"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_and4_x1_002",
+          "ports": {
+            "A": "ctrl_f0_n",
+            "B": "ctrl_f1_n",
+            "C": "ctrl_r0",
+            "D": "ctrl_r1_n",
+            "Y": "pc_tx_dec"
+          },
+          "type": "AND4_X1"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_nand4_000",
+          "ports": {
+            "A": "ctrl_f0",
+            "B": "ctrl_f1_n",
+            "C": "ctrl_r0",
+            "D": "ctrl_r1_n",
+            "Y": "pc_sync_clear_n"
+          },
+          "type": "NAND4"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_or3_001",
+          "ports": {
+            "A": "reset",
+            "B": "stop_evt",
+            "C": "mismatch_reset",
+            "Y": "s00_base_clear"
+          },
+          "type": "OR3"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_nor3_003",
+          "ports": {
+            "A": "pc_sync_clear_n",
+            "B": "scl",
+            "C": "sda_n",
+            "Y": "tx_nack_clear"
+          },
+          "type": "NOR3"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_s00_q",
+          "ports": {
+            "A": "s00_base_clear",
+            "B": "tx_nack_clear",
+            "C": "s00_n",
+            "Y": "s00"
+          },
+          "type": "NOR3"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_s00_qn",
+          "ports": {
+            "A": "start_evt",
+            "B": "s00",
+            "Y": "s00_n"
+          },
+          "type": "NOR2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_mux2_000",
+          "ports": {
+            "A": "pc_tx_dec",
+            "B": "pc_rx_inc",
+            "S": "pc0",
+            "Y": "pc_mode_m"
+          },
+          "type": "MUX2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_or2_006",
+          "ports": {
+            "A": "pc_rx_inc",
+            "B": "pc_tx_dec",
+            "Y": "pc_toggle0"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_xor2_000",
+          "ports": {
+            "A": "pc0",
+            "B": "pc_toggle0",
+            "Y": "pc_d0_base"
+          },
+          "type": "XOR2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_or2_007",
+          "ports": {
+            "A": "pc_d0_base",
+            "B": "pc_tx_seed",
+            "Y": "pc_d0_seed"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_and2_x1_014",
+          "ports": {
+            "A": "pc_d0_seed",
+            "B": "pc_sync_clear_n",
+            "Y": "pc_d0"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_xor2_001",
+          "ports": {
+            "A": "pc1",
+            "B": "pc_mode_m",
+            "Y": "pc_d1_base"
+          },
+          "type": "XOR2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_or2_008",
+          "ports": {
+            "A": "pc_d1_base",
+            "B": "pc_tx_seed",
+            "Y": "pc_d1_seed"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_and2_x1_015",
+          "ports": {
+            "A": "pc_d1_seed",
+            "B": "pc_sync_clear_n",
+            "Y": "pc_d1"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_xnor2_000",
+          "ports": {
+            "A": "pc1",
+            "B": "pc0",
+            "Y": "pc_eq10"
+          },
+          "type": "XNOR2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_and2_x1_016",
+          "ports": {
+            "A": "pc_mode_m",
+            "B": "pc_eq10",
+            "Y": "pc_toggle2"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_xor2_002",
+          "ports": {
+            "A": "pc2",
+            "B": "pc_toggle2",
+            "Y": "pc_d2_base"
+          },
+          "type": "XOR2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_or2_009",
+          "ports": {
+            "A": "pc_d2_base",
+            "B": "pc_tx_seed",
+            "Y": "pc_d2_seed"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_and2_x1_017",
+          "ports": {
+            "A": "pc_d2_seed",
+            "B": "pc_sync_clear_n",
+            "Y": "pc_d2"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_pc0",
+          "ports": {
+            "CK": "scl",
+            "D": "pc_d0",
+            "Q": "pc0",
+            "QB": "pc0_n",
+            "RST": "start_reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_pc1",
+          "ports": {
+            "CK": "scl",
+            "D": "pc_d1",
+            "Q": "pc1",
+            "QB": "pc1_n",
+            "RST": "start_reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "shared_counter_and_event_latch",
+          "name": "u_pc2",
+          "ports": {
+            "CK": "scl",
+            "D": "pc_d2",
+            "Q": "pc2",
+            "QB": "pc2_n",
+            "RST": "start_reset"
+          },
+          "type": "DFFR"
+        }
+      ],
+      "component_class": "shared_counter_and_event_latch",
+      "interface_inputs": [
+        "ctrl_f0",
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0",
+        "ctrl_r1",
+        "ctrl_r1_n",
+        "mismatch_reset",
+        "pc_rx_inc",
+        "reset",
+        "scl",
+        "sda_n",
+        "start_evt",
+        "start_reset",
+        "stop_evt"
+      ],
+      "interface_outputs": [
+        "pc0",
+        "pc1",
+        "pc1_n",
+        "pc2",
+        "s00"
+      ],
+      "selector_sha256": "6bb711eb24509bd0ca666120dab584931937f0f1df7b55f0bd654ca5c334f01b"
+    },
+    "shift_observation_quotient": {
+      "area_um2": 62155.54,
+      "cell_histogram": {
+        "AND2_X1": 3,
+        "AND3_X1": 2,
+        "AND4_X1": 1,
+        "CLKBUF_X4": 1,
+        "DFFR": 3,
+        "INV_X1": 1,
+        "NAND3": 1,
+        "NOR3": 3,
+        "OR2": 1,
+        "OR3": 1,
+        "XNOR2": 1,
+        "XOR2": 1
+      },
+      "cells": [
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_and2_x1_018",
+          "ports": {
+            "A": "scl",
+            "B": "recv_en",
+            "Y": "rx_clk_raw"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_clkbuf_x4_000",
+          "ports": {
+            "A": "rx_clk_raw",
+            "Y": "rx_clk"
+          },
+          "type": "CLKBUF_X4"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_nand3_002",
+          "ports": {
+            "A": "rxq0",
+            "B": "rxq1",
+            "C": "rxq2_n",
+            "Y": "rx_n0005_n"
+          },
+          "type": "NAND3"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_inv_x1_003",
+          "ports": {
+            "A": "rx_n0005_n",
+            "Y": "rx_n0005_p"
+          },
+          "type": "INV_X1"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_and3_x1_002",
+          "ports": {
+            "A": "rxq0_n",
+            "B": "rxq2",
+            "C": "sda_n",
+            "Y": "rx_n0008_p"
+          },
+          "type": "AND3_X1"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_nor3_004",
+          "ports": {
+            "A": "rxq1",
+            "B": "rxq2",
+            "C": "sda_in",
+            "Y": "rx_n0011_n"
+          },
+          "type": "NOR3"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_or3_002",
+          "ports": {
+            "A": "rx_n0005_p",
+            "B": "rx_n0008_p",
+            "C": "rx_n0011_n",
+            "Y": "rx_d0"
+          },
+          "type": "OR3"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_or2_010",
+          "ports": {
+            "A": "rxq0_n",
+            "B": "sda_in",
+            "Y": "rx_n0013_p"
+          },
+          "type": "OR2"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_and2_x1_019",
+          "ports": {
+            "A": "rx_n0013_p",
+            "B": "rx_n0005_n",
+            "Y": "rx_d1"
+          },
+          "type": "AND2_X1"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_and3_x1_003",
+          "ports": {
+            "A": "rxq1",
+            "B": "rxq2",
+            "C": "sda_n",
+            "Y": "rx_n0018_p"
+          },
+          "type": "AND3_X1"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_and4_x1_003",
+          "ports": {
+            "A": "rxq0",
+            "B": "rxq1",
+            "C": "rxq2_n",
+            "D": "sda_in",
+            "Y": "rx_n0021_p"
+          },
+          "type": "AND4_X1"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_nor3_005",
+          "ports": {
+            "A": "rxq0",
+            "B": "rxq2",
+            "C": "sda_in",
+            "Y": "rx_n0024_n"
+          },
+          "type": "NOR3"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_nor3_006",
+          "ports": {
+            "A": "rx_n0018_p",
+            "B": "rx_n0021_p",
+            "C": "rx_n0024_n",
+            "Y": "rx_d2_phys"
+          },
+          "type": "NOR3"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_rxq0",
+          "ports": {
+            "CK": "rx_clk",
+            "D": "rx_d0",
+            "Q": "rxq0",
+            "QB": "rxq0_n",
+            "RST": "start_reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_rxq1",
+          "ports": {
+            "CK": "rx_clk",
+            "D": "rx_d1",
+            "Q": "rxq1",
+            "QB": "rxq1_n",
+            "RST": "start_reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_rxq2",
+          "ports": {
+            "CK": "rx_clk",
+            "D": "rx_d2_phys",
+            "Q": "rxq2_n",
+            "QB": "rxq2",
+            "RST": "start_reset"
+          },
+          "type": "DFFR"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_xnor2_001",
+          "ports": {
+            "A": "rxq2",
+            "B": "rxq0",
+            "Y": "rx_eq20"
+          },
+          "type": "XNOR2"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_xor2_003",
+          "ports": {
+            "A": "rxq1",
+            "B": "rxq0",
+            "Y": "rx_neq10"
+          },
+          "type": "XOR2"
+        },
+        {
+          "component": "shift_observation_quotient",
+          "name": "u_and2_x1_020",
+          "ports": {
+            "A": "rx_eq20",
+            "B": "rx_neq10",
+            "Y": "rx_old_p07_0"
+          },
+          "type": "AND2_X1"
+        }
+      ],
+      "component_class": "shift_observation_quotient",
+      "interface_inputs": [
+        "recv_en",
+        "scl",
+        "sda_in",
+        "sda_n",
+        "start_reset"
+      ],
+      "interface_outputs": [
+        "rx_old_p07_0",
+        "rxq0",
+        "rxq1",
+        "rxq2"
+      ],
+      "selector_sha256": "89981b9d88662eae7ba2ed549d5ddc4ec3a958e3c9ca98e73f4eff5a68f9631d"
+    }
+  },
+  "technology": "TR-1um",
+  "timescale": "`timescale 1ns/1ps",
+  "version": "bio2rtl-tr1um-component-recipe-cache-v1"
+}

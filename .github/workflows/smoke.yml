@@ -1,0 +1,74 @@
+name: smoke
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  cli:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.10', '3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: python -m pip install -e .
+      - run: bio2rtl --version
+      - run: bio2rtl check examples/i2c_gpio_2bit/i2c-gpio-hw.dis
+      - run: bio2rtl check examples/set_after_3_rises/set_after_3_rises.dis
+      - run: bio2rtl check examples/clock_divider_by4_75pct/clock_divider_by4_75pct.dis
+      - run: bio2rtl check examples/serial_pattern_1101/serial_pattern_1101.dis
+      - run: bio2rtl check examples/clock_divider_by4/clock_divider_by4.dis
+      - run: python -m compileall -q bio2rtl semantic_frontend tools
+      - run: PYTHONPATH=. python tools/test_generic_pass_manager.py
+
+  full-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: python -m pip install -e .
+      - run: bio2rtl build examples/set_after_3_rises/set_after_3_rises.dis --build-dir build-ci-counter
+      - name: Build the same design in core-only mode
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          src = Path('examples/set_after_3_rises/bio2rtl.toml').read_text()
+          src = src.split('\n[physical_support]')[0] + '\n'
+          Path('core-only.toml').write_text(src)
+          PY
+          bio2rtl build examples/set_after_3_rises/set_after_3_rises.dis             -c core-only.toml --build-dir build-ci-core-only
+          ! test -e build-ci-core-only/xschem/set_after_3_rises_fullchip.sch
+          ! test -e build-ci-core-only/physical_support_inferred.json
+          cmp build-ci-counter/set_after_3_rises.structural.v build-ci-core-only/set_after_3_rises.structural.v
+          cmp build-ci-counter/physical_dhir_v18_stage7.json build-ci-core-only/physical_dhir_v18_stage7.json
+          cmp build-ci-counter/xschem/set_after_3_rises_core.sch build-ci-core-only/xschem/set_after_3_rises_core.sch
+      - name: Check PDK-independent generated paths
+        run: |
+          ! grep -R '/root/pdk' build-ci-counter/xschem build-ci-counter/spice
+          grep -q 'TR-1um_5_stdcell/' build-ci-counter/xschem/set_after_3_rises_core.sch
+          ! test -e build-ci-counter/xschem/set_after_3_rises_manual.sch
+          ! test -e build-ci-counter/xschem/set_after_3_rises_core_phy.sch
+          ! test -e build-ci-counter/xschem/set_after_3_rises_core_phy.sym
+          python - <<'PY'
+          import json
+          report = json.load(open('build-ci-counter/stage7_declarative_mapper_report.json'))
+          assert report['total_cells'] == 16, report['total_cells']
+          assert report['selected_connectivity_audit']['dangling_comb_outputs'] == []
+          liveness = report['semantic_liveness']
+          assert liveness['pruned_combinational_outputs'] == ['evt_hevt001'], liveness
+          routed = json.load(open('build-ci-counter/routed_xschem_export_audit.json'))
+          assert routed['noconn_count'] == 0, routed.get('noconn_pins')
+          PY
+          mkdir -p "$RUNNER_TEMP/nonroot-home/pdk/TR-1um"
+          HOME="$RUNNER_TEMP/nonroot-home" env -u PDK_ROOT -u PDK \
+            python build-ci-counter/spice/prepare_local_models.py
+          grep -q "$RUNNER_TEMP/nonroot-home/pdk/TR-1um" \
+            build-ci-counter/spice/tr1um_local_models.inc

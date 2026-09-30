@@ -1,0 +1,16 @@
+{
+  "policies": [
+    {
+      "cell_count_delta": 0,
+      "class": "terminal_mismatch_async_clear_phase_qualification",
+      "evidence": {
+        "trusted_icarus": "PASS",
+        "v15_whole_proof": "PASS"
+      },
+      "qualification_phase": "LOW",
+      "reason": "avoid transient mismatch when counter settles before observation quotient"
+    }
+  ],
+  "status": "PASS",
+  "version": "bio2rtl-physical-realization-policy-v1"
+}

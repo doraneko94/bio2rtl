@@ -1,0 +1,29 @@
+{
+  "entries": [
+    {
+      "plan": {
+        "bits": {
+          "fall": 2,
+          "rise": 2
+        },
+        "fall_component_codes": [
+          0,
+          1,
+          0,
+          2,
+          1
+        ],
+        "rise_component_codes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "source": "technology mapping choice for this content-addressed control recipe; not semantic code labels",
+        "version": "bio2rtl-control-physical-encoding-plan-v1"
+      },
+      "semantic_selector": "e3164820db5b415a543a3c913fcd226b184da1f73979159b91ac715685928957"
+    }
+  ],
+  "version": "bio2rtl-control-encoding-plan-cache-v1"
+}

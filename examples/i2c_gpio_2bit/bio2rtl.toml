@@ -1,0 +1,33 @@
+schema = "bio2rtl-project-v1.1"
+program = "i2c-gpio-hw.dis"
+name = "i2c_gpio_2bit"
+
+[[io]]
+name = "SCL"
+gpio = 16
+support = "direct"
+
+[[io]]
+name = "SDA"
+gpio = 17
+support = "sda_io"
+
+[[io]]
+name = "GPIO0"
+gpio = 18
+support = "gpio_io"
+
+[[io]]
+name = "GPIO1"
+gpio = 19
+support = "gpio_io"
+
+# Generic Ver.1 currently supports only external-I/O-edge clocking.
+[clock]
+mode = "io_edges"
+source = "SCL"
+
+# Full-chip physical support is optional.  Generic Ver.1 currently supports
+# only the TR-1um support-recipe library.  Core power nets are fixed to VDD/VSS.
+[physical_support]
+technology = "TR-1um"

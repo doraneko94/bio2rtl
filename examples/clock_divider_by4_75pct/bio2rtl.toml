@@ -1,0 +1,20 @@
+schema = "bio2rtl-project-v1.1"
+program = "clock_divider_by4_75pct.dis"
+name = "clock_divider_by4_75pct"
+
+[[io]]
+name = "TICK"
+gpio = 16
+support = "direct"
+
+[[io]]
+name = "OUT"
+gpio = 18
+support = "gpio_o"
+
+[clock]
+mode = "io_edges"
+source = "TICK"
+
+[physical_support]
+technology = "TR-1um"

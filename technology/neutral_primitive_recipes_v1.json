@@ -1,0 +1,59 @@
+{
+  "primitives": {
+    "clock_buffer": {
+      "implementations": {
+        "X4": {
+          "cell": "CLKBUF_X4",
+          "ports": {
+            "input": "A",
+            "output": "Y"
+          }
+        }
+      }
+    },
+    "clock_inverter": {
+      "implementations": {
+        "X4": {
+          "cell": "INV_X4",
+          "ports": {
+            "input": "A",
+            "output": "Y"
+          }
+        }
+      }
+    },
+    "delay_element": {
+      "implementations": {
+        "DEL4": {
+          "cell": "DEL4",
+          "ports": {
+            "input": "A",
+            "output": "Y"
+          }
+        }
+      }
+    },
+    "set_reset_latch": {
+      "implementations": {
+        "cross_coupled_nor": {
+          "cells_by_total_inputs": {
+            "2": "NOR2",
+            "3": "NOR3",
+            "4": "NOR4"
+          },
+          "family": "NOR",
+          "input_pins": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "max_total_inputs_per_side": 4,
+          "output_pin": "Y"
+        }
+      }
+    }
+  },
+  "technology": "TR-1um",
+  "version": "bio2rtl-neutral-primitive-technology-map-v1"
+}

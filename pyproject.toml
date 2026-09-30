@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bio2rtl"
+version = "1.2.1"
+description = "BIO disassembly to proof-backed TR-1um RTL/Xschem compiler"
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+requires-python = ">=3.10"
+dependencies = [
+    "networkx>=2.8",
+    "tomli>=1.1.0; python_version < '3.11'",
+]
+
+[project.scripts]
+bio2rtl = "bio2rtl.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bio2rtl*"]
+exclude = ["semantic_frontend*"]

@@ -1,0 +1,45 @@
+{
+  "entries": [
+    {
+      "plan": {
+        "clock_complements": {
+          "16": "scl_n"
+        },
+        "clock_inverter": {
+          "implementation_class": "X4",
+          "primitive_kind": "clock_inverter"
+        },
+        "event_nets": {
+          "HEVT001": "start_evt",
+          "HEVT002": "stop_evt"
+        },
+        "input_complements": {
+          "17": "sda_n"
+        },
+        "qualified_edge_delay": {
+          "implementation_class": "DEL4",
+          "primitive_kind": "delay_element",
+          "stages": 4
+        },
+        "reset_groups": [
+          {
+            "events": [
+              "HEVT001",
+              "HEVT002"
+            ],
+            "net": "proto_reset"
+          },
+          {
+            "events": [
+              "HEVT001"
+            ],
+            "net": "start_reset"
+          }
+        ],
+        "version": "bio2rtl-event-interface-binding-v1"
+      },
+      "semantic_selector": "ae056d00893f029a78d31afc652051beb296c55607d2f66394deb19c237a15fd"
+    }
+  ],
+  "version": "bio2rtl-neutral-event-interface-binding-cache-v1"
+}

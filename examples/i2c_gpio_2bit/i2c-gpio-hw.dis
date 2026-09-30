@@ -1,0 +1,571 @@
+
+zig-out/i2c-gpio-hw_bio.o:     file format elf32-littleriscv
+
+
+Disassembly of section .text:
+
+00000000 <BM_I2C_GPIO_HW_BIO_START>:
+   0:	00001137          	lui	x2,0x1
+   4:	a009                	j	6 <BM_I2C_GPIO_HW_BIO_START+0x6>
+   6:	711d                	addi	x2,x2,-96
+   8:	ce86                	sw	x1,92(x2)
+   a:	cca2                	sw	x8,88(x2)
+   c:	caa6                	sw	x9,84(x2)
+   e:	000f05b7          	lui	x11,0xf0
+  12:	00030537          	lui	x10,0x30
+  16:	8d2e                	mv	gpmask,x11
+  18:	fffc05b7          	lui	x11,0xfffc0
+  1c:	15fd                	addi	x11,x11,-1 # fffbffff <BM_I2C_GPIO_HW_BIO_START+0xfffbffff>
+  1e:	8caa                	mv	dirin,x10
+  20:	8bae                	mv	gpclrn,x11
+  22:	fff005b7          	lui	x11,0xfff00
+  26:	fe512e23          	sw	x5,-4(x2) # ffc <BM_I2C_GPIO_HW_BIO_START+0xffc>
+  2a:	4285                	li	x5,1
+  2c:	029e                	slli	x5,x5,0x7
+  2e:	02b2                	slli	x5,x5,0xc
+  30:	9596                	add	x11,x11,x5
+  32:	ffc12283          	lw	x5,-4(x2)
+  36:	15fd                	addi	x11,x11,-1 # ffefffff <BM_I2C_GPIO_HW_BIO_START+0xffefffff>
+  38:	8bae                	mv	gpclrn,x11
+  3a:	000405b7          	lui	x11,0x40
+  3e:	8c2e                	mv	dirout,x11
+  40:	4581                	li	x11,0
+  42:	fe512e23          	sw	x5,-4(x2)
+  46:	4285                	li	x5,1
+  48:	029e                	slli	x5,x5,0x7
+  4a:	02b2                	slli	x5,x5,0xc
+  4c:	9596                	add	x11,x11,x5
+  4e:	ffc12283          	lw	x5,-4(x2)
+  52:	8c2e                	mv	dirout,x11
+  54:	000205b7          	lui	x11,0x20
+  58:	8cae                	mv	dirin,x11
+  5a:	85d6                	mv	x11,gpio
+  5c:	8de9                	and	x11,x11,x10
+  5e:	fea59ee3          	bne	x11,x10,5a <BM_I2C_GPIO_HW_BIO_START+0x5a>
+  62:	4501                	li	x10,0
+  64:	d402                	sw	x0,40(x2)
+  66:	dc02                	sw	x0,56(x2)
+  68:	c282                	sw	x0,68(x2)
+  6a:	c882                	sw	x0,80(x2)
+  6c:	4681                	li	x13,0
+  6e:	c402                	sw	x0,8(x2)
+  70:	c202                	sw	x0,4(x2)
+  72:	4601                	li	x12,0
+  74:	c482                	sw	x0,72(x2)
+  76:	ca02                	sw	x0,20(x2)
+  78:	cc02                	sw	x0,24(x2)
+  7a:	4281                	li	x5,0
+  7c:	c082                	sw	x0,64(x2)
+  7e:	de02                	sw	x0,60(x2)
+  80:	c602                	sw	x0,12(x2)
+  82:	d602                	sw	x0,44(x2)
+  84:	da02                	sw	x0,52(x2)
+  86:	d802                	sw	x0,48(x2)
+  88:	7781                	lui	x15,0xfffe0
+  8a:	17fd                	addi	x15,x15,-1 # fffdffff <BM_I2C_GPIO_HW_BIO_START+0xfffdffff>
+  8c:	d03e                	sw	x15,32(x2)
+  8e:	4705                	li	x14,1
+  90:	c6ba                	sw	x14,76(x2)
+  92:	4385                	li	x7,1
+  94:	879e                	mv	x15,x7
+  96:	84d6                	mv	x9,gpio
+  98:	00020437          	lui	x8,0x20
+  9c:	0084f333          	and	x6,x9,x8
+  x10:	6441                	lui	x8,0x10
+  x12:	0084f0b3          	and	x1,x9,x8
+  fifo0:	02031863          	bnez	x6,d6 <BM_I2C_GPIO_HW_BIO_START+0xd6>
+  aa:	02008663          	beqz	x1,d6 <BM_I2C_GPIO_HW_BIO_START+0xd6>
+  ae:	4736                	lw	x14,76(x2)
+  b0:	c31d                	beqz	x14,d6 <BM_I2C_GPIO_HW_BIO_START+0xd6>
+  b2:	d802                	sw	x0,48(x2)
+  b4:	da02                	sw	x0,52(x2)
+  b6:	d602                	sw	x0,44(x2)
+  b8:	d402                	sw	x0,40(x2)
+  ba:	dc02                	sw	x0,56(x2)
+  bc:	c282                	sw	x0,68(x2)
+  be:	c882                	sw	x0,80(x2)
+  c0:	4581                	li	x11,0
+  c2:	4481                	li	x9,0
+  c4:	c482                	sw	x0,72(x2)
+  c6:	4701                	li	x14,0
+  c8:	c082                	sw	x0,64(x2)
+  ca:	de02                	sw	x0,60(x2)
+  cc:	00020537          	lui	x10,0x20
+  d0:	8caa                	mv	dirin,x10
+  d2:	4405                	li	x8,1
+  d4:	a805                	j	104 <BM_I2C_GPIO_HW_BIO_START+0x104>
+  d6:	02030363          	beqz	x6,fc <BM_I2C_GPIO_HW_BIO_START+0xfc>
+  da:	02008163          	beqz	x1,fc <BM_I2C_GPIO_HW_BIO_START+0xfc>
+  de:	4736                	lw	x14,76(x2)
+  e0:	ef11                	bnez	x14,fc <BM_I2C_GPIO_HW_BIO_START+0xfc>
+  e2:	4401                	li	x8,0
+  e4:	dc02                	sw	x0,56(x2)
+  e6:	c282                	sw	x0,68(x2)
+  e8:	c882                	sw	x0,80(x2)
+  ea:	4581                	li	x11,0
+  ec:	4481                	li	x9,0
+  ee:	c482                	sw	x0,72(x2)
+  f0:	c082                	sw	x0,64(x2)
+  f2:	00020537          	lui	x10,0x20
+  f6:	8caa                	mv	dirin,x10
+  f8:	de02                	sw	x0,60(x2)
+  fa:	a029                	j	104 <BM_I2C_GPIO_HW_BIO_START+0x104>
+  fc:	842a                	mv	x8,x10
+  fe:	85b6                	mv	x11,x13
+ 100:	84b2                	mv	x9,x12
+ 102:	8716                	mv	x14,x5
+ 104:	01135513          	srli	x10,x6,0x11
+ 108:	c6aa                	sw	x10,76(x2)
+ 10a:	10079b63          	bnez	x15,220 <BM_I2C_GPIO_HW_BIO_START+0x220>
+ 10e:	10008963          	beqz	x1,220 <BM_I2C_GPIO_HW_BIO_START+0x220>
+ 112:	05014783          	lbu	x15,80(x2)
+ 116:	4685                	li	x13,1
+ 118:	8522                	mv	x10,x8
+ 11a:	8626                	mv	x12,x9
+ 11c:	82ba                	mv	x5,x14
+ 11e:	4385                	li	x7,1
+ 120:	fbb5                	bnez	x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 122:	c882                	sw	x0,80(x2)
+ 124:	04814783          	lbu	x15,72(x2)
+ 128:	4385                	li	x7,1
+ 12a:	8522                	mv	x10,x8
+ 12c:	86ae                	mv	x13,x11
+ 12e:	8626                	mv	x12,x9
+ 130:	4285                	li	x5,1
+ 132:	f3ad                	bnez	x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 134:	d22e                	sw	x11,36(x2)
+ 136:	ce3a                	sw	x14,28(x2)
+ 138:	04014503          	lbu	x10,64(x2)
+ 13c:	26051863          	bnez	x10,3ac <BM_I2C_GPIO_HW_BIO_START+0x3ac>
+ 140:	8522                	mv	x10,x8
+ 142:	5692                	lw	x13,36(x2)
+ 144:	8626                	mv	x12,x9
+ 146:	c482                	sw	x0,72(x2)
+ 148:	40f2                	lw	x1,28(x2)
+ 14a:	8286                	mv	x5,x1
+ 14c:	c882                	sw	x0,80(x2)
+ 14e:	c082                	sw	x0,64(x2)
+ 150:	d031                	beqz	x8,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 152:	03814783          	lbu	x15,56(x2)
+ 156:	8522                	mv	x10,x8
+ 158:	5692                	lw	x13,36(x2)
+ 15a:	8626                	mv	x12,x9
+ 15c:	45c6                	lw	x11,80(x2)
+ 15e:	c4ae                	sw	x11,72(x2)
+ 160:	8286                	mv	x5,x1
+ 162:	c0ae                	sw	x11,64(x2)
+ 164:	fb85                	bnez	x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 166:	8522                	mv	x10,x8
+ 168:	5692                	lw	x13,36(x2)
+ 16a:	8626                	mv	x12,x9
+ 16c:	45c6                	lw	x11,80(x2)
+ 16e:	c4ae                	sw	x11,72(x2)
+ 170:	8286                	mv	x5,x1
+ 172:	c0ae                	sw	x11,64(x2)
+ 174:	479d                	li	x15,7
+ 176:	1171                	addi	x2,x2,-4
+ 178:	5762                	lw	x14,56(x2)
+ 17a:	0111                	addi	x2,x2,4
+ 17c:	f0e7ece3          	bltu	x15,x14,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 180:	dc02                	sw	x0,56(x2)
+ 182:	c882                	sw	x0,80(x2)
+ 184:	c482                	sw	x0,72(x2)
+ 186:	c082                	sw	x0,64(x2)
+ 188:	57c2                	lw	x15,48(x2)
+ 18a:	00179713          	slli	x14,x15,0x1
+ 18e:	8286                	mv	x5,x1
+ 190:	1171                	addi	x2,x2,-4
+ 192:	50e2                	lw	x1,56(x2)
+ 194:	0111                	addi	x2,x2,4
+ 196:	0085                	addi	x1,x1,1
+ 198:	4536                	lw	x10,76(x2)
+ 19a:	8d59                	or	x10,x10,x14
+ 19c:	d82a                	sw	x10,48(x2)
+ 19e:	8522                	mv	x10,x8
+ 1a0:	5692                	lw	x13,36(x2)
+ 1a2:	8626                	mv	x12,x9
+ 1a4:	47a1                	li	x15,8
+ 1a6:	da06                	sw	x1,52(x2)
+ 1a8:	eef096e3          	bne	x1,x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 1ac:	02c14583          	lbu	x11,44(x2)
+ 1b0:	16058c63          	beqz	x11,328 <BM_I2C_GPIO_HW_BIO_START+0x328>
+ 1b4:	02814303          	lbu	x6,40(x2)
+ 1b8:	00030563          	beqz	x6,1c2 <BM_I2C_GPIO_HW_BIO_START+0x1c2>
+ 1bc:	4505                	li	x10,1
+ 1be:	20a58463          	beq	x11,x10,3c6 <BM_I2C_GPIO_HW_BIO_START+0x3c6>
+ 1c2:	4521                	li	x10,8
+ 1c4:	da2a                	sw	x10,52(x2)
+ 1c6:	8522                	mv	x10,x8
+ 1c8:	c882                	sw	x0,80(x2)
+ 1ca:	5092                	lw	x1,36(x2)
+ 1cc:	8686                	mv	x13,x1
+ 1ce:	8626                	mv	x12,x9
+ 1d0:	c482                	sw	x0,72(x2)
+ 1d2:	47f2                	lw	x15,28(x2)
+ 1d4:	82be                	mv	x5,x15
+ 1d6:	dc02                	sw	x0,56(x2)
+ 1d8:	c082                	sw	x0,64(x2)
+ 1da:	ea030de3          	beqz	x6,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 1de:	8522                	mv	x10,x8
+ 1e0:	5762                	lw	x14,56(x2)
+ 1e2:	c8ba                	sw	x14,80(x2)
+ 1e4:	8686                	mv	x13,x1
+ 1e6:	8626                	mv	x12,x9
+ 1e8:	c4ba                	sw	x14,72(x2)
+ 1ea:	82be                	mv	x5,x15
+ 1ec:	c0ba                	sw	x14,64(x2)
+ 1ee:	4789                	li	x15,2
+ 1f0:	eaf592e3          	bne	x11,x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 1f4:	00c14783          	lbu	x15,12(x2)
+ 1f8:	4585                	li	x11,1
+ 1fa:	450d                	li	x10,3
+ 1fc:	d62a                	sw	x10,44(x2)
+ 1fe:	4505                	li	x10,1
+ 200:	dc2a                	sw	x10,56(x2)
+ 202:	20b78463          	beq	x15,x11,40a <BM_I2C_GPIO_HW_BIO_START+0x40a>
+ 206:	c882                	sw	x0,80(x2)
+ 208:	c482                	sw	x0,72(x2)
+ 20a:	c082                	sw	x0,64(x2)
+ 20c:	8522                	mv	x10,x8
+ 20e:	4585                	li	x11,1
+ 210:	c2ae                	sw	x11,68(x2)
+ 212:	5692                	lw	x13,36(x2)
+ 214:	8626                	mv	x12,x9
+ 216:	42f2                	lw	x5,28(x2)
+ 218:	4385                	li	x7,1
+ 21a:	e6079de3          	bnez	x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 21e:	a2f1                	j	3ea <BM_I2C_GPIO_HW_BIO_START+0x3ea>
+ 220:	0100d393          	srli	x7,x1,0x10
+ 224:	8522                	mv	x10,x8
+ 226:	86ae                	mv	x13,x11
+ 228:	8626                	mv	x12,x9
+ 22a:	82ba                	mv	x5,x14
+ 22c:	e60784e3          	beqz	x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 230:	8522                	mv	x10,x8
+ 232:	86ae                	mv	x13,x11
+ 234:	8626                	mv	x12,x9
+ 236:	82ba                	mv	x5,x14
+ 238:	e4009ee3          	bnez	x1,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 23c:	86ae                	mv	x13,x11
+ 23e:	82ba                	mv	x5,x14
+ 240:	05014503          	lbu	x10,80(x2)
+ 244:	4596                	lw	x11,68(x2)
+ 246:	cd91                	beqz	x11,262 <BM_I2C_GPIO_HW_BIO_START+0x262>
+ 248:	ed09                	bnez	x10,262 <BM_I2C_GPIO_HW_BIO_START+0x262>
+ 24a:	c282                	sw	x0,68(x2)
+ 24c:	4681                	li	x13,0
+ 24e:	5502                	lw	x10,32(x2)
+ 250:	8baa                	mv	gpclrn,x10
+ 252:	00020537          	lui	x10,0x20
+ 256:	8c2a                	mv	dirout,x10
+ 258:	4505                	li	x10,1
+ 25a:	c8aa                	sw	x10,80(x2)
+ 25c:	8522                	mv	x10,x8
+ 25e:	8626                	mv	x12,x9
+ 260:	bd15                	j	94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 262:	8316                	mv	x6,x5
+ 264:	80b6                	mv	x1,x13
+ 266:	c121                	beqz	x10,2a6 <BM_I2C_GPIO_HW_BIO_START+0x2a6>
+ 268:	02008f63          	beqz	x1,2a6 <BM_I2C_GPIO_HW_BIO_START+0x2a6>
+ 26c:	c882                	sw	x0,80(x2)
+ 26e:	4681                	li	x13,0
+ 270:	4601                	li	x12,0
+ 272:	da02                	sw	x0,52(x2)
+ 274:	d802                	sw	x0,48(x2)
+ 276:	00020537          	lui	x10,0x20
+ 27a:	8caa                	mv	dirin,x10
+ 27c:	8522                	mv	x10,x8
+ 27e:	829a                	mv	x5,x6
+ 280:	e0048ae3          	beqz	x9,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 284:	c882                	sw	x0,80(x2)
+ 286:	4681                	li	x13,0
+ 288:	4601                	li	x12,0
+ 28a:	4281                	li	x5,0
+ 28c:	da02                	sw	x0,52(x2)
+ 28e:	d802                	sw	x0,48(x2)
+ 290:	5502                	lw	x10,32(x2)
+ 292:	8baa                	mv	gpclrn,x10
+ 294:	00020537          	lui	x10,0x20
+ 298:	8c2a                	mv	dirout,x10
+ 29a:	451d                	li	x10,7
+ 29c:	cc2a                	sw	x10,24(x2)
+ 29e:	4505                	li	x10,1
+ 2a0:	c4aa                	sw	x10,72(x2)
+ 2a2:	8522                	mv	x10,x8
+ 2a4:	bbc5                	j	94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 2a6:	04814503          	lbu	x10,72(x2)
+ 2aa:	c515                	beqz	x10,2d6 <BM_I2C_GPIO_HW_BIO_START+0x2d6>
+ 2ac:	02030563          	beqz	x6,2d6 <BM_I2C_GPIO_HW_BIO_START+0x2d6>
+ 2b0:	45e2                	lw	x11,24(x2)
+ 2b2:	0ff5f513          	zext.b	x10,x11
+ 2b6:	c929                	beqz	x10,308 <BM_I2C_GPIO_HW_BIO_START+0x308>
+ 2b8:	15fd                	addi	x11,x11,-1 # 1ffff <BM_I2C_GPIO_HW_BIO_START+0x1ffff>
+ 2ba:	1171                	addi	x2,x2,-4
+ 2bc:	01814503          	lbu	x10,24(x2)
+ 2c0:	0111                	addi	x2,x2,4
+ 2c2:	cc2e                	sw	x11,24(x2)
+ 2c4:	00b55533          	srl	x10,x10,x11
+ 2c8:	4281                	li	x5,0
+ 2ca:	8905                	andi	x10,x10,1
+ 2cc:	c921                	beqz	x10,31c <BM_I2C_GPIO_HW_BIO_START+0x31c>
+ 2ce:	00020537          	lui	x10,0x20
+ 2d2:	8caa                	mv	dirin,x10
+ 2d4:	b761                	j	25c <BM_I2C_GPIO_HW_BIO_START+0x25c>
+ 2d6:	04014783          	lbu	x15,64(x2)
+ 2da:	8522                	mv	x10,x8
+ 2dc:	8686                	mv	x13,x1
+ 2de:	8626                	mv	x12,x9
+ 2e0:	829a                	mv	x5,x6
+ 2e2:	da0789e3          	beqz	x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 2e6:	8522                	mv	x10,x8
+ 2e8:	8686                	mv	x13,x1
+ 2ea:	8626                	mv	x12,x9
+ 2ec:	829a                	mv	x5,x6
+ 2ee:	5772                	lw	x14,60(x2)
+ 2f0:	da0702e3          	beqz	x14,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 2f4:	c082                	sw	x0,64(x2)
+ 2f6:	de02                	sw	x0,60(x2)
+ 2f8:	00020537          	lui	x10,0x20
+ 2fc:	8caa                	mv	dirin,x10
+ 2fe:	8522                	mv	x10,x8
+ 300:	8686                	mv	x13,x1
+ 302:	8626                	mv	x12,x9
+ 304:	829a                	mv	x5,x6
+ 306:	b379                	j	94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 308:	c482                	sw	x0,72(x2)
+ 30a:	cc02                	sw	x0,24(x2)
+ 30c:	4281                	li	x5,0
+ 30e:	de02                	sw	x0,60(x2)
+ 310:	00020537          	lui	x10,0x20
+ 314:	8caa                	mv	dirin,x10
+ 316:	4505                	li	x10,1
+ 318:	c0aa                	sw	x10,64(x2)
+ 31a:	b789                	j	25c <BM_I2C_GPIO_HW_BIO_START+0x25c>
+ 31c:	5502                	lw	x10,32(x2)
+ 31e:	8baa                	mv	gpclrn,x10
+ 320:	00020537          	lui	x10,0x20
+ 324:	8c2a                	mv	dirout,x10
+ 326:	bf1d                	j	25c <BM_I2C_GPIO_HW_BIO_START+0x25c>
+ 328:	4501                	li	x10,0
+ 32a:	dc02                	sw	x0,56(x2)
+ 32c:	c882                	sw	x0,80(x2)
+ 32e:	c482                	sw	x0,72(x2)
+ 330:	c082                	sw	x0,64(x2)
+ 332:	d602                	sw	x0,44(x2)
+ 334:	0ff77593          	zext.b	x11,x14
+ 338:	c82e                	sw	x11,16(x2)
+ 33a:	45a1                	li	x11,8
+ 33c:	da2e                	sw	x11,52(x2)
+ 33e:	5092                	lw	x1,36(x2)
+ 340:	8686                	mv	x13,x1
+ 342:	8626                	mv	x12,x9
+ 344:	4772                	lw	x14,28(x2)
+ 346:	82ba                	mv	x5,x14
+ 348:	08400793          	li	x15,132
+ 34c:	45c2                	lw	x11,16(x2)
+ 34e:	d4f593e3          	bne	x11,x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 352:	dc02                	sw	x0,56(x2)
+ 354:	c882                	sw	x0,80(x2)
+ 356:	c482                	sw	x0,72(x2)
+ 358:	c082                	sw	x0,64(x2)
+ 35a:	4505                	li	x10,1
+ 35c:	d42a                	sw	x10,40(x2)
+ 35e:	8522                	mv	x10,x8
+ 360:	4585                	li	x11,1
+ 362:	c2ae                	sw	x11,68(x2)
+ 364:	8686                	mv	x13,x1
+ 366:	8626                	mv	x12,x9
+ 368:	82ba                	mv	x5,x14
+ 36a:	4705                	li	x14,1
+ 36c:	d63a                	sw	x14,44(x2)
+ 36e:	4385                	li	x7,1
+ 370:	d20302e3          	beqz	x6,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 374:	4732                	lw	x14,12(x2)
+ 376:	0ff77793          	zext.b	x15,x14
+ 37a:	4585                	li	x11,1
+ 37c:	4505                	li	x10,1
+ 37e:	c2aa                	sw	x10,68(x2)
+ 380:	0af5c963          	blt	x11,x15,432 <BM_I2C_GPIO_HW_BIO_START+0x432>
+ 384:	8522                	mv	x10,x8
+ 386:	d43a                	sw	x14,40(x2)
+ 388:	dc3a                	sw	x14,56(x2)
+ 38a:	c8ba                	sw	x14,80(x2)
+ 38c:	5592                	lw	x11,36(x2)
+ 38e:	86ae                	mv	x13,x11
+ 390:	4605                	li	x12,1
+ 392:	c4ba                	sw	x14,72(x2)
+ 394:	44a2                	lw	x9,8(x2)
+ 396:	ca26                	sw	x9,20(x2)
+ 398:	44f2                	lw	x9,28(x2)
+ 39a:	82a6                	mv	x5,x9
+ 39c:	c0ba                	sw	x14,64(x2)
+ 39e:	d63a                	sw	x14,44(x2)
+ 3a0:	4705                	li	x14,1
+ 3a2:	c6ba                	sw	x14,76(x2)
+ 3a4:	4385                	li	x7,1
+ 3a6:	ce0787e3          	beqz	x15,94 <BM_I2C_GPIO_HW_BIO_START+0x94>
+ 3aa:	a845                	j	45a <BM_I2C_GPIO_HW_BIO_START+0x45a>
+ 3ac:	4505                	li	x10,1
+ 3ae:	de2a                	sw	x10,60(x2)
+ 3b0:	42f2                	lw	x5,28(x2)
+ 3b2:	5692                	lw	x13,36(x2)
+ 3b4:	00030463          	beqz	x6,3bc <BM_I2C_GPIO_HW_BIO_START+0x3bc>
+ 3b8:	4505                	li	x10,1
+ 3ba:	dc2a                	sw	x10,56(x2)
+ 3bc:	c882                	sw	x0,80(x2)
+ 3be:	c482                	sw	x0,72(x2)
+ 3c0:	8522                	mv	x10,x8
+ 3c2:	8626                	mv	x12,x9
+ 3c4:	b1f9                	j	92 <BM_I2C_GPIO_HW_BIO_START+0x92>
+ 3c6:	dc02                	sw	x0,56(x2)
+ 3c8:	c882                	sw	x0,80(x2)
+ 3ca:	c482                	sw	x0,72(x2)
+ 3cc:	c082                	sw	x0,64(x2)
+ 3ce:	5542                	lw	x10,48(x2)
+ 3d0:	890d                	andi	x10,x10,3
+ 3d2:	c62a                	sw	x10,12(x2)
+ 3d4:	4521                	li	x10,8
+ 3d6:	da2a                	sw	x10,52(x2)
+ 3d8:	4509                	li	x10,2
+ 3da:	d62a                	sw	x10,44(x2)
+ 3dc:	4505                	li	x10,1
+ 3de:	c2aa                	sw	x10,68(x2)
+ 3e0:	8522                	mv	x10,x8
+ 3e2:	5692                	lw	x13,36(x2)
+ 3e4:	8626                	mv	x12,x9
+ 3e6:	42f2                	lw	x5,28(x2)
+ 3e8:	b16d                	j	92 <BM_I2C_GPIO_HW_BIO_START+0x92>
+ 3ea:	5542                	lw	x10,48(x2)
+ 3ec:	890d                	andi	x10,x10,3
+ 3ee:	00414583          	lbu	x11,4(x2)
+ 3f2:	c42a                	sw	x10,8(x2)
+ 3f4:	2871                	jal	490 <BM_I2C_GPIO_HW_BIO_START+0x490>
+ 3f6:	c882                	sw	x0,80(x2)
+ 3f8:	c482                	sw	x0,72(x2)
+ 3fa:	c082                	sw	x0,64(x2)
+ 3fc:	c602                	sw	x0,12(x2)
+ 3fe:	4505                	li	x10,1
+ 400:	dc2a                	sw	x10,56(x2)
+ 402:	8522                	mv	x10,x8
+ 404:	4585                	li	x11,1
+ 406:	c2ae                	sw	x11,68(x2)
+ 408:	bfe9                	j	3e2 <BM_I2C_GPIO_HW_BIO_START+0x3e2>
+ 40a:	55c2                	lw	x11,48(x2)
+ 40c:	898d                	andi	x11,x11,3
+ 40e:	00814503          	lbu	x10,8(x2)
+ 412:	c22e                	sw	x11,4(x2)
+ 414:	28b5                	jal	490 <BM_I2C_GPIO_HW_BIO_START+0x490>
+ 416:	c882                	sw	x0,80(x2)
+ 418:	c482                	sw	x0,72(x2)
+ 41a:	c082                	sw	x0,64(x2)
+ 41c:	4505                	li	x10,1
+ 41e:	dc2a                	sw	x10,56(x2)
+ 420:	8522                	mv	x10,x8
+ 422:	4585                	li	x11,1
+ 424:	c2ae                	sw	x11,68(x2)
+ 426:	5692                	lw	x13,36(x2)
+ 428:	8626                	mv	x12,x9
+ 42a:	42f2                	lw	x5,28(x2)
+ 42c:	4705                	li	x14,1
+ 42e:	c63a                	sw	x14,12(x2)
+ 430:	b18d                	j	92 <BM_I2C_GPIO_HW_BIO_START+0x92>
+ 432:	4509                	li	x10,2
+ 434:	04a79063          	bne	x15,x10,474 <BM_I2C_GPIO_HW_BIO_START+0x474>
+ 438:	d402                	sw	x0,40(x2)
+ 43a:	dc02                	sw	x0,56(x2)
+ 43c:	c882                	sw	x0,80(x2)
+ 43e:	c482                	sw	x0,72(x2)
+ 440:	c082                	sw	x0,64(x2)
+ 442:	d602                	sw	x0,44(x2)
+ 444:	87d6                	mv	x15,gpio
+ 446:	4509                	li	x10,2
+ 448:	c62a                	sw	x10,12(x2)
+ 44a:	8522                	mv	x10,x8
+ 44c:	5692                	lw	x13,36(x2)
+ 44e:	4605                	li	x12,1
+ 450:	42f2                	lw	x5,28(x2)
+ 452:	07b2                	slli	x15,x15,0xc
+ 454:	83f9                	srli	x15,x15,0x1e
+ 456:	ca3e                	sw	x15,20(x2)
+ 458:	b91d                	j	8e <BM_I2C_GPIO_HW_BIO_START+0x8e>
+ 45a:	d402                	sw	x0,40(x2)
+ 45c:	dc02                	sw	x0,56(x2)
+ 45e:	c882                	sw	x0,80(x2)
+ 460:	c482                	sw	x0,72(x2)
+ 462:	c082                	sw	x0,64(x2)
+ 464:	d602                	sw	x0,44(x2)
+ 466:	8522                	mv	x10,x8
+ 468:	86ae                	mv	x13,x11
+ 46a:	4605                	li	x12,1
+ 46c:	4712                	lw	x14,4(x2)
+ 46e:	ca3a                	sw	x14,20(x2)
+ 470:	82a6                	mv	x5,x9
+ 472:	b931                	j	8e <BM_I2C_GPIO_HW_BIO_START+0x8e>
+ 474:	d402                	sw	x0,40(x2)
+ 476:	dc02                	sw	x0,56(x2)
+ 478:	c882                	sw	x0,80(x2)
+ 47a:	c482                	sw	x0,72(x2)
+ 47c:	c082                	sw	x0,64(x2)
+ 47e:	d602                	sw	x0,44(x2)
+ 480:	02000513          	li	x10,32
+ 484:	ca2a                	sw	x10,20(x2)
+ 486:	8522                	mv	x10,x8
+ 488:	5692                	lw	x13,36(x2)
+ 48a:	4605                	li	x12,1
+ 48c:	42f2                	lw	x5,28(x2)
+ 48e:	b101                	j	8e <BM_I2C_GPIO_HW_BIO_START+0x8e>
+ 490:	0015f613          	andi	x12,x11,1
+ 494:	e611                	bnez	x12,4a0 <BM_I2C_GPIO_HW_BIO_START+0x4a0>
+ 496:	fffc0637          	lui	x12,0xfffc0
+ 49a:	167d                	addi	x12,x12,-1 # fffbffff <BM_I2C_GPIO_HW_BIO_START+0xfffbffff>
+ 49c:	8bb2                	mv	gpclrn,x12
+ 49e:	a021                	j	4a6 <BM_I2C_GPIO_HW_BIO_START+0x4a6>
+ 4a0:	00040637          	lui	x12,0x40
+ 4a4:	8b32                	mv	gpset,x12
+ 4a6:	4609                	li	x12,2
+ 4a8:	00c5ff63          	bgeu	x11,x12,4c6 <BM_I2C_GPIO_HW_BIO_START+0x4c6>
+ 4ac:	fff005b7          	lui	x11,0xfff00
+ 4b0:	fe512e23          	sw	x5,-4(x2)
+ 4b4:	4285                	li	x5,1
+ 4b6:	029e                	slli	x5,x5,0x7
+ 4b8:	02b2                	slli	x5,x5,0xc
+ 4ba:	9596                	add	x11,x11,x5
+ 4bc:	ffc12283          	lw	x5,-4(x2)
+ 4c0:	15fd                	addi	x11,x11,-1 # ffefffff <BM_I2C_GPIO_HW_BIO_START+0xffefffff>
+ 4c2:	8bae                	mv	gpclrn,x11
+ 4c4:	a819                	j	4da <BM_I2C_GPIO_HW_BIO_START+0x4da>
+ 4c6:	4581                	li	x11,0
+ 4c8:	fe512e23          	sw	x5,-4(x2)
+ 4cc:	4285                	li	x5,1
+ 4ce:	029e                	slli	x5,x5,0x7
+ 4d0:	02b2                	slli	x5,x5,0xc
+ 4d2:	9596                	add	x11,x11,x5
+ 4d4:	ffc12283          	lw	x5,-4(x2)
+ 4d8:	8b2e                	mv	gpset,x11
+ 4da:	00157593          	andi	x11,x10,1
+ 4de:	e589                	bnez	x11,4e8 <BM_I2C_GPIO_HW_BIO_START+0x4e8>
+ 4e0:	000405b7          	lui	x11,0x40
+ 4e4:	8c2e                	mv	dirout,x11
+ 4e6:	a021                	j	4ee <BM_I2C_GPIO_HW_BIO_START+0x4ee>
+ 4e8:	000405b7          	lui	x11,0x40
+ 4ec:	8cae                	mv	dirin,x11
+ 4ee:	4589                	li	x11,2
+ 4f0:	00b57d63          	bgeu	x10,x11,50a <BM_I2C_GPIO_HW_BIO_START+0x50a>
+ 4f4:	4501                	li	x10,0
+ 4f6:	fe512e23          	sw	x5,-4(x2)
+ 4fa:	4285                	li	x5,1
+ 4fc:	029e                	slli	x5,x5,0x7
+ 4fe:	02b2                	slli	x5,x5,0xc
+ 500:	9516                	add	x10,x10,x5
+ 502:	ffc12283          	lw	x5,-4(x2)
+ 506:	8c2a                	mv	dirout,x10
+ 508:	8082                	ret
+ 50a:	4501                	li	x10,0
+ 50c:	fe512e23          	sw	x5,-4(x2)
+ 510:	4285                	li	x5,1
+ 512:	029e                	slli	x5,x5,0x7
+ 514:	02b2                	slli	x5,x5,0xc
+ 516:	9516                	add	x10,x10,x5
+ 518:	ffc12283          	lw	x5,-4(x2)
+ 51c:	8caa                	mv	dirin,x10
+ 51e:	8082                	ret

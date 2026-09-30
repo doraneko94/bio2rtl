@@ -1,0 +1,70 @@
+{
+  "version": "bio2rtl-neutral-interface-binding-cache-v1",
+  "entries": [
+    {
+      "kind": "phase_factorized_control",
+      "semantic_selector": "e3164820db5b415a543a3c913fcd226b184da1f73979159b91ac715685928957",
+      "plan": {
+        "version": "bio2rtl-control-interface-binding-v1",
+        "banks": {
+          "rise": {
+            "q": ["ctrl_r0", "ctrl_r1"],
+            "qb": ["ctrl_r0_n", "ctrl_r1_n"],
+            "clock": "scl"
+          },
+          "fall": {
+            "q": ["ctrl_f0", "ctrl_f1"],
+            "qb": ["ctrl_f0_n", "ctrl_f1_n"],
+            "clock": "scl_n"
+          }
+        },
+        "reset": "proto_reset",
+        "branch_roles": {
+          "rise": [
+            {
+              "id": "rise_root",
+              "net": "ack_enter",
+              "target_code_bit": 1,
+              "qualified_outside_ambiguous_family": true
+            },
+            {
+              "id": "rise_child",
+              "net": "read_ack",
+              "target_code_bit": 0,
+              "active_when": {"role": "rise_root", "value": 1},
+              "qualified_outside_ambiguous_family": false
+            }
+          ],
+          "fall": [
+            {
+              "id": "fall_root",
+              "net": "pc7",
+              "target_code_bit": 0,
+              "qualified_outside_ambiguous_family": false
+            }
+          ]
+        },
+        "helpers": [
+          {
+            "name": "ctrl_r0_read",
+            "op": "AND",
+            "roles": ["rise_root", "rise_child"]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "open_drain_oe_recurrence",
+      "component_selector": "bb0e14ced597515129e3c7828014e8c3c766b3796eaec814ca75428f9ef12048",
+      "plan": {
+        "version": "bio2rtl-oe-interface-binding-v1",
+        "state": {"q": "sda_oe", "qb": "sda_oe_n"},
+        "clock": "scl_n",
+        "reset": "proto_reset",
+        "count_zero": {"net": "pc7_n", "polarity": "inverted"},
+        "data_predicate": {"net": "tx_b005", "polarity": "direct"},
+        "next_comb_output": "sda_oe_d"
+      }
+    }
+  ]
+}

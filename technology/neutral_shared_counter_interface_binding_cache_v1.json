@@ -1,0 +1,35 @@
+{
+  "entries": [
+    {
+      "component_selector": "6bb711eb24509bd0ca666120dab584931937f0f1df7b55f0bd654ca5c334f01b",
+      "plan": {
+        "clock": "scl",
+        "counter_bits": [
+          {
+            "complement": "pc0_n",
+            "net": "pc0"
+          },
+          {
+            "complement": "pc1_n",
+            "net": "pc1"
+          },
+          {
+            "complement": "pc2_n",
+            "net": "pc2"
+          }
+        ],
+        "global_reset": "reset",
+        "increment_enable": "pc_rx_inc",
+        "latch": {
+          "q": "s00",
+          "qb": "s00_n"
+        },
+        "origin": "content-addressed neutral interface/retiming policy; operation semantics come from fresh shared-counter and phase40 proofs",
+        "residual_latch_clear": "mismatch_reset",
+        "sampled_data_complement": "sda_n",
+        "version": "bio2rtl-shared-counter-interface-binding-v1"
+      }
+    }
+  ],
+  "version": "bio2rtl-neutral-shared-counter-interface-binding-cache-v1"
+}

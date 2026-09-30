@@ -1,0 +1,57 @@
+{
+  "entries": [
+    {
+      "component_selector": "89981b9d88662eae7ba2ed549d5ddc4ec3a958e3c9ca98e73f4eff5a68f9631d",
+      "plan": {
+        "clock_gate": {
+          "clock_net": "rx_clk",
+          "clock_source": "scl",
+          "enable": "recv_en",
+          "implementation_class": "X4",
+          "primitive_kind": "clock_buffer",
+          "raw_net": "rx_clk_raw"
+        },
+        "encoding": [
+          1,
+          2,
+          6,
+          7,
+          4,
+          3,
+          5,
+          0
+        ],
+        "observation_outputs": [
+          {
+            "invert": true,
+            "net": "rx_old_p07_0",
+            "predicate_id": "B031"
+          }
+        ],
+        "origin": "content-addressed encoding/interface plan; encoding is technology-aware but quotient semantics come from fresh proof",
+        "reset": "start_reset",
+        "reset_quotient_state": 4,
+        "serial_input": {
+          "complement": "sda_n",
+          "net": "sda_in"
+        },
+        "state_bits": [
+          {
+            "complement": "rxq0_n",
+            "net": "rxq0"
+          },
+          {
+            "complement": "rxq1_n",
+            "net": "rxq1"
+          },
+          {
+            "complement": "rxq2_n",
+            "net": "rxq2"
+          }
+        ],
+        "version": "bio2rtl-shift-interface-encoding-plan-v1"
+      }
+    }
+  ],
+  "version": "bio2rtl-neutral-shift-interface-binding-cache-v1"
+}

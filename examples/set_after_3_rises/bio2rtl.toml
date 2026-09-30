@@ -1,0 +1,20 @@
+schema = "bio2rtl-project-v1.1"
+program = "set_after_3_rises.dis"
+name = "set_after_3_rises"
+
+[[io]]
+name = "TICK"
+gpio = 16
+support = "direct"
+
+[[io]]
+name = "OUT"
+gpio = 18
+support = "gpio_o"
+
+[clock]
+mode = "io_edges"
+source = "TICK"
+
+[physical_support]
+technology = "TR-1um"

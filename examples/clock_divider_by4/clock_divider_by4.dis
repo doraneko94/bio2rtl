@@ -1,0 +1,26 @@
+clock_divider_by4.o: file format elf32-littleriscv
+
+Disassembly of section .text:
+
+00000000 <start>:
+   0: 00000013  li x6,0x10000
+   4: 00000013  li x7,0x40000
+   8: 00000013  li x11,0xfffbffff
+   c: 00000013  li x8,0
+  10: 00000013  li x9,0
+  14: 00000013  mv dirout,x7
+00000018 <loop>:
+  18: 00000013  mv x5,gpio
+  1c: 00000013  and x5,x5,x6
+  20: 00000013  beq x5,x8,18 <loop>
+  24: 00000013  mv x8,x5
+  28: 00000013  beqz x5,18 <loop>
+  2c: 00000013  addi x9,x9,1
+  30: 00000013  andi x9,x9,3
+  34: 00000013  li x10,2
+  38: 00000013  bltu x9,x10,44 <high>
+  3c: 00000013  mv gpclrn,x11
+  40: 00000013  j 18 <loop>
+00000044 <high>:
+  44: 00000013  mv gpset,x7
+  48: 00000013  j 18 <loop>

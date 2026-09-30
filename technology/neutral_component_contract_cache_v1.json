@@ -1,0 +1,391 @@
+{
+  "contracts": {
+    "direct_protocol_state": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "combinational_outputs": {},
+      "component_class": "direct_protocol_state",
+      "dffs": [
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "XOR",
+            [
+              "AND",
+              [
+                [
+                  "OR",
+                  [
+                    [
+                      "AND",
+                      [
+                        [
+                          "VAR",
+                          "rx_match"
+                        ],
+                        [
+                          "VAR",
+                          "sda_n"
+                        ]
+                      ]
+                    ],
+                    [
+                      "VAR",
+                      "p08_ne0"
+                    ]
+                  ]
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "p08_0"
+            ]
+          ],
+          "q": "p08_0",
+          "qb": "p08_0_n",
+          "reset": "start_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "XOR",
+            [
+              "AND",
+              [
+                [
+                  "OR",
+                  [
+                    [
+                      "AND",
+                      [
+                        [
+                          "VAR",
+                          "rx_match"
+                        ],
+                        [
+                          "VAR",
+                          "sda_n"
+                        ]
+                      ]
+                    ],
+                    [
+                      "VAR",
+                      "p08_ne0"
+                    ]
+                  ]
+                ],
+                [
+                  "VAR",
+                  "p08_0"
+                ],
+                [
+                  "VAR",
+                  "rx_terminal"
+                ]
+              ]
+            ],
+            [
+              "VAR",
+              "p08_1"
+            ]
+          ],
+          "q": "p08_1",
+          "qb": "p08_1_n",
+          "reset": "start_reset"
+        }
+      ],
+      "interface_inputs": [
+        "p08_ne0",
+        "rx_match",
+        "rx_terminal",
+        "scl",
+        "sda_n",
+        "start_reset"
+      ],
+      "interface_outputs": [
+        "p08_0",
+        "p08_0_n",
+        "p08_1",
+        "p08_1_n"
+      ],
+      "selector_sha256": "835c51bf33d0792da416e590966b292f279552a687b08449517c1ec983e61b76",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    },
+    "open_drain_oe_recurrence": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "combinational_outputs": {},
+      "component_class": "open_drain_oe_recurrence",
+      "dffs": [
+        {
+          "cell": "DFFR",
+          "clock": "scl_n",
+          "d_expr": [
+            "OR",
+            [
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "ctrl_f0"
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r0"
+                  ]
+                ]
+              ],
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "ctrl_f0_n"
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_f1_n"
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r0_n"
+                  ],
+                  [
+                    "VAR",
+                    "sda_oe"
+                  ]
+                ]
+              ],
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "ctrl_r0"
+                  ],
+                  [
+                    "VAR",
+                    "pc7_n"
+                  ],
+                  [
+                    "VAR",
+                    "tx_b005"
+                  ]
+                ]
+              ],
+              [
+                "VAR",
+                "ctrl_r1"
+              ]
+            ]
+          ],
+          "q": "sda_oe",
+          "qb": "sda_oe_n",
+          "reset": "proto_reset"
+        }
+      ],
+      "interface_inputs": [
+        "ctrl_f0",
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0",
+        "ctrl_r0_n",
+        "ctrl_r1",
+        "pc7_n",
+        "proto_reset",
+        "scl_n",
+        "tx_b005"
+      ],
+      "interface_outputs": [
+        "sda_oe"
+      ],
+      "selector_sha256": "bb0e14ced597515129e3c7828014e8c3c766b3796eaec814ca75428f9ef12048",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    },
+    "phase_factorized_control": {
+      "bootstrap_source": "mapped component symbolic extraction; contract itself is technology-neutral",
+      "combinational_outputs": {
+        "ctrl_r0_read": [
+          "AND",
+          [
+            [
+              "VAR",
+              "ack_enter"
+            ],
+            [
+              "VAR",
+              "read_ack"
+            ]
+          ]
+        ]
+      },
+      "component_class": "phase_factorized_control",
+      "control_encoding_plan": {
+        "bits": {
+          "fall": 2,
+          "rise": 2
+        },
+        "fall_component_codes": [
+          0,
+          1,
+          0,
+          2,
+          1
+        ],
+        "rise_component_codes": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "source": "technology mapping choice for this content-addressed control recipe; not semantic code labels",
+        "version": "bio2rtl-control-physical-encoding-plan-v1"
+      },
+      "dffs": [
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "OR",
+            [
+              [
+                "AND",
+                [
+                  [
+                    "OR",
+                    [
+                      [
+                        "VAR",
+                        "ctrl_f0_n"
+                      ],
+                      [
+                        "VAR",
+                        "ctrl_r1"
+                      ]
+                    ]
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r0"
+                  ]
+                ]
+              ],
+              [
+                "AND",
+                [
+                  [
+                    "VAR",
+                    "ack_enter"
+                  ],
+                  [
+                    "VAR",
+                    "read_ack"
+                  ]
+                ]
+              ]
+            ]
+          ],
+          "q": "ctrl_r0",
+          "qb": "ctrl_r0_n",
+          "reset": "proto_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl",
+          "d_expr": [
+            "VAR",
+            "ack_enter"
+          ],
+          "q": "ctrl_r1",
+          "qb": "ctrl_r1_n",
+          "reset": "proto_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl_n",
+          "d_expr": [
+            "AND",
+            [
+              [
+                "OR",
+                [
+                  [
+                    "AND",
+                    [
+                      [
+                        "VAR",
+                        "ctrl_f0_n"
+                      ],
+                      [
+                        "VAR",
+                        "pc7"
+                      ]
+                    ]
+                  ],
+                  [
+                    "VAR",
+                    "ctrl_r1"
+                  ]
+                ]
+              ],
+              [
+                "VAR",
+                "ctrl_r0"
+              ]
+            ]
+          ],
+          "q": "ctrl_f0",
+          "qb": "ctrl_f0_n",
+          "reset": "proto_reset"
+        },
+        {
+          "cell": "DFFR",
+          "clock": "scl_n",
+          "d_expr": [
+            "AND",
+            [
+              [
+                "VAR",
+                "ctrl_r0_n"
+              ],
+              [
+                "VAR",
+                "ctrl_r1"
+              ]
+            ]
+          ],
+          "q": "ctrl_f1",
+          "qb": "ctrl_f1_n",
+          "reset": "proto_reset"
+        }
+      ],
+      "interface_inputs": [
+        "ack_enter",
+        "pc7",
+        "proto_reset",
+        "read_ack",
+        "scl",
+        "scl_n"
+      ],
+      "interface_outputs": [
+        "ctrl_f0",
+        "ctrl_f0_n",
+        "ctrl_f1_n",
+        "ctrl_r0",
+        "ctrl_r0_n",
+        "ctrl_r0_read",
+        "ctrl_r1",
+        "ctrl_r1_n"
+      ],
+      "selector_sha256": "d27852f49f9ceb6296db001f28224fc0588852e2ef3275707ba11476347f9851",
+      "version": "bio2rtl-neutral-boolean-sequential-contract-v1"
+    }
+  },
+  "version": "bio2rtl-neutral-component-contract-cache-v1"
+}

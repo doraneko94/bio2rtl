@@ -1,0 +1,155 @@
+{
+  "entries": [
+    {
+      "component_selector": "501080851c06ee4b3be061b6fe58d83a7f3ab95f89b4b3b6ead51c403ae1645d",
+      "plan": {
+        "banks": [
+          {
+            "architecture_role": "selector_context",
+            "bits": [
+              {
+                "load_data": [
+                  "VAR",
+                  "sda_in"
+                ],
+                "q": "p12_0",
+                "qb": "p12_0_n"
+              },
+              {
+                "load_data": [
+                  "VAR",
+                  "rx_old_p07_0"
+                ],
+                "q": "p12_1",
+                "qb": "p12_1_n"
+              }
+            ],
+            "load_expression": [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "rx_terminal"
+                ],
+                [
+                  "VAR",
+                  "p08_eq1"
+                ]
+              ]
+            ],
+            "role": "selector_context"
+          },
+          {
+            "architecture_role": "observation_snapshot",
+            "bits": [
+              {
+                "load_data": [
+                  "VAR",
+                  "gpio0_in"
+                ],
+                "q": "snap0",
+                "qb": "snap0_n"
+              },
+              {
+                "load_data": [
+                  "VAR",
+                  "gpio1_in"
+                ],
+                "q": "snap1",
+                "qb": "snap1_n"
+              }
+            ],
+            "load_expression": [
+              "VAR",
+              "ctrl_r0_read"
+            ],
+            "role": "observation_snapshot"
+          },
+          {
+            "architecture_role": "gpio_data_payload",
+            "bits": [
+              {
+                "load_data": [
+                  "VAR",
+                  "sda_in"
+                ],
+                "q": "gdata0",
+                "qb": "gdata0_n"
+              },
+              {
+                "load_data": [
+                  "VAR",
+                  "rx_old_p07_0"
+                ],
+                "q": "gdata1",
+                "qb": "gdata1_n"
+              }
+            ],
+            "load_expression": [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "rx_terminal"
+                ],
+                [
+                  "VAR",
+                  "p08_eq2"
+                ],
+                [
+                  "VAR",
+                  "p12_eq1"
+                ]
+              ]
+            ],
+            "role": "payload_data"
+          },
+          {
+            "architecture_role": "gpio_direction_payload",
+            "bits": [
+              {
+                "load_data": [
+                  "VAR",
+                  "sda_in"
+                ],
+                "q": "gdirp0",
+                "qb": "gdir0"
+              },
+              {
+                "load_data": [
+                  "VAR",
+                  "rx_old_p07_0"
+                ],
+                "q": "gdirp1",
+                "qb": "gdir1"
+              }
+            ],
+            "load_expression": [
+              "AND",
+              [
+                [
+                  "VAR",
+                  "rx_terminal"
+                ],
+                [
+                  "VAR",
+                  "p08_eq2"
+                ],
+                [
+                  "VAR",
+                  "p12_eq0"
+                ]
+              ]
+            ],
+            "role": "payload_direction_complement"
+          }
+        ],
+        "clock": "scl",
+        "origin": "content-addressed architecture/interface plan; lowering is generic load/hold recurrence",
+        "reset": "reset",
+        "version": "bio2rtl-generic-load-hold-bank-plan-v1"
+      }
+    }
+  ],
+  "version": "bio2rtl-neutral-load-hold-bank-binding-cache-v1"
+}
