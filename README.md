@@ -26,7 +26,7 @@ wsl -d ubuntu2204_ishi-kai_EDA
 Run inside WSL:
 
 ```bash
-git clone https://github.com/J-IMPACT/bio2rtl.git
+git clone https://github.com/doraneko94/bio2rtl.git
 cd bio2rtl
 ```
 

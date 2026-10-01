@@ -32,6 +32,6 @@ The four non-I2C examples map to 16, 11, 29, and 12 cells. Release regression ch
 
 ## Compatibility and license
 
-Python 3.10+ is supported. Python 3.10 uses the `tomli` fallback. `networkx>=2.8`, required by the Xschem placement/router path, is declared as a runtime dependency.
+Python 3.10+ is supported. Python 3.10 uses the `tomli` fallback. The release CI compiles the full Python source tree on Python 3.10, 3.11, and 3.13 so newer-only syntax cannot enter the published tree unnoticed. `networkx>=2.8`, required by the Xschem placement/router path, is declared as a runtime dependency.
 
 bio2rtl is licensed under Apache License 2.0. Using bio2rtl does not by itself apply Apache-2.0 to user-generated circuits. Third-party PDK/IP remains subject to its own license terms.

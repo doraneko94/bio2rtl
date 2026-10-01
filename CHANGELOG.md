@@ -11,6 +11,7 @@
 - Remove the stale `*_tb_template.sch` core-only verifier expectation; the documented `*_tb.sym` is the generated testbench interface artifact.
 - Add an explicit release-regression target for the five bundled examples and mapped-signal/I2C checks.
 - Correct the I2C proof-count documentation: the unchanged mapper/proof code reports 98,056 truth checks in each final proof JSON for the 122-cell snapshot.
+- Restore the documented Python 3.10/3.11 compatibility by removing a Python 3.12-only f-string expression from an optional semantic-frontend transform; refresh GitHub Actions to Node 24-compatible action releases.
 
 ## 1.2.0
 

@@ -119,7 +119,11 @@ def main():
     block_re = rf'(?m)^wire\s+\[{w-1}:0\]\s+{re.escape(d)}\s*;\n(?:assign\s+{re.escape(d)}\[\d+\]\s*=.*\n){{{w}}}'
     s = sub1(s, block_re, '\n'.join(lines)+'\n', 'D block')
     # Reset/update physical state.
-    reset_lines = '\n'.join([f"        {n} <= 1'b0;" for n in match_names]+(([f"        {low_name} <= {('1\'b0' if k==1 else f'{k}\'d0')};"]) if k else []))
+    reset_state_lines = [f"        {n} <= 1'b0;" for n in match_names]
+    if k:
+        reset_zero = "1'b0" if k == 1 else f"{k}'d0"
+        reset_state_lines.append(f"        {low_name} <= {reset_zero};")
+    reset_lines = '\n'.join(reset_state_lines)
     s = sub1(s, rf'(?m)^\s*{re.escape(r)}\s*<=\s*{w}\'d0\s*;\s*$', reset_lines, 'reset')
     upd = [f"            {mn} <= d_{rid}_match_{const};" for const, mn in zip(consts, match_names)]
     if k: 
